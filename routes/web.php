@@ -22,14 +22,19 @@ Route::get('/about', 'PagesController@about')->name('about');
 
 
 Route::get('/articles', 'ArticlesController@index')->name('articles');
-
 Route::get('/articles/create', 'ArticlesController@create' );
-
 Route::get('/articles/{id}', 'ArticlesController@show');
-
 Route::post('articles', 'ArticlesController@store');
 
 
+Route::get('/blogs', 'BlogController@index')->name('blogs');
+Route::get('/blogs/create', 'BlogController@create');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -38,8 +43,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/blog', 'BlogController@blog')->name('blog');

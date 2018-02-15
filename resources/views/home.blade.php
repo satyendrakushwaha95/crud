@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
 
-                <div class="panel-heading">Welcome!!</div>
+                <div class="panel-heading">This is your Homepage</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -14,12 +14,18 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Here you can add your blogs:
+                    <h1>Welcome</h1>
+                    <strong>Created using Laravel 5.3</strong>
+                    <br>
+                    <center>
+                    <h3> Click to post.!! </h3>
+                    <a class="btn btn-danger" href="{{ route('blogs') }}">
+                                    Blogs
+                                </a>
                     
-                    <a href="{{route('blog')}}" class="btn btn-default"> Add Blog
-                    </a>
-                    
+                    <a class="btn btn-success" href="{{ route('articles') }}">
+                                    Articles
+                                </a></center>
                 </div>
 
             </div>

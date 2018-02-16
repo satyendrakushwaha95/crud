@@ -10,7 +10,9 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-    	$articles=Article::latest('created_at')->get();
+    	$data=Article::latest('created_at');
+        $articles=$data->paginate(2);
+        $articles->setPath('articles');
     	return view ('articles.index',compact('articles'));
 
     }

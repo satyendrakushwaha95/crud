@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 
@@ -6,21 +7,31 @@
                                     Add
                                 </a> </h1>
 
+<div class="container">
+<table class="table">
+<tr class="danger">
+<th>ID</th>
+<th>Name </th>
+<th>Body </th>
+<th>Time </th>
+</tr>
 @foreach($articles as $article)
- 
-<article>
-
-<h2>
-
-
-<a href="{{ action('ArticlesController@show',[$article->id]) }}"> {{ $article->title }} </a>
-
-</h2>
-
-<div class="body"> {{ $article->body }} </div>
-
-</article>
-
+<tr class="info">
+<td>{{ $article->id }}</td>
+<td><a href="{{ action('ArticlesController@show',[$article->id]) }}"> {{ $article->title }} </a> </td>
+<td>{{ $article->body}}</td>
+<td>{{$article->created_at}}</td>
+</tr>
 @endforeach
 
+</table>
+<?php echo $articles->render(); ?>
+
+
+
+
+
 @endsection
+
+
+

@@ -19,7 +19,7 @@
                     <br>
                     <center>
                     <h3> Click to post.!! </h3>
-                    <a class="btn btn-danger" href="{{ route('blogs') }}">
+                    <a class="btn btn-danger" href="{{ url('/blogs') }}">
                                     Blogs
                                 </a>
                     

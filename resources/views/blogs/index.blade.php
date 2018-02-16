@@ -2,12 +2,22 @@
 @extends('layouts.app')
 @section('content')
 
-
-<h1>Blog Homepage</h1>
+<h1>Blog Homepage
+<a class="btn btn-success" href="{{url('/blogs/create')}}">
+                                    Add
+                                </a></h1>
+<div class="container" >
+<table class="table"> 
+<tr class="danger">
+<th>Blog</th>
+<th>Blog Body</th>
+</tr>
 @foreach($blogs as $blog)
-<article>
-<h2>{{$blog->title}}</h2>
-<div class="body"><p>{{$blog->content}}</p></div>
-</article>
+<tr class="info">
+<td>{{$blog->title}}</td>
+<td>{{$blog->content}}</td>
+</tr>
 @endforeach
+</table>
+</div>
 @endsection

@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 
 class BlogsController extends Controller
 {
+    
+
     public function index(){
     	$blogs=Blog::all();
     // return $blogs;
     	return view ('blogs.index',compact('blogs'))	;
     }
+
+
+    public function create()
+    {
+      	return view ('blogs.create');
+	}
+
 }

@@ -28,6 +28,7 @@ Route::post('articles', 'ArticlesController@store');
 
 
 Route::get('/blogs','BlogsController@index');
+Route::get('/blogs/create','BlogsController@create');
 
 
 Auth::routes();

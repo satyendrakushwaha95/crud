@@ -29,6 +29,7 @@ Route::post('articles', 'ArticlesController@store');
 
 Route::get('/blogs','BlogsController@index');
 Route::get('/blogs/create','BlogsController@create');
+Route::get('/blogs/{id}', 'BlogsController@show');
 
 
 Auth::routes();

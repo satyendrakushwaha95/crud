@@ -7,8 +7,8 @@
                                     Add
                                 </a> </h1>
 
-<div class="container">
-<table class="table">
+<div class="container" >
+<table class="table"> 
 <tr class="danger">
 <th>ID</th>
 <th>Name </th>

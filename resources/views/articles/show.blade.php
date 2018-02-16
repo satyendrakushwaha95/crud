@@ -10,5 +10,4 @@
 {{ $article->body }}
 
 </article>
-
 @endsection

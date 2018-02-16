@@ -27,10 +27,6 @@ Route::get('/articles/{id}', 'ArticlesController@show');
 Route::post('articles', 'ArticlesController@store');
 
 
-Route::get('/blogs', 'BlogController@index');
-Route::get('/blogs/create', 'BlogController@create');
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

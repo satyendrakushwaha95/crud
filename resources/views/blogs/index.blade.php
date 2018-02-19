@@ -14,10 +14,14 @@
 </tr>
 @foreach($blogs as $blog)
 <tr class="info">
-<td>{{$blog->title}}</td>
+<td>{{$blog->id}}
+<td><a href="{{ action('BlogsController@show',[$blog->id]) }}">{{$blog->title}}</a>
 <td>{{$blog->content}}</td>
 </tr>
 @endforeach
 </table>
+<?php echo $blogs->render(); ?>
+
 </div>
+
 @endsection

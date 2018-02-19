@@ -10,14 +10,16 @@ body {
 
 @section('content')
 
+
 <div class="container">
+  <div class="jumbotron">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="page-header">
-                <h1><center>This is your Homepage</center></h1></div>
+                
+                <h3><center>This is your Homepage</center></h3></div>
 
-                <div class="panel-body">
+                
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -31,9 +33,12 @@ body {
                                       
                     <a class="btn btn-success" href="{{ route('articles') }}">
                                     Articles
+                                </a>
+                    <a class="btn btn-success" href="{{ route('blogs') }}">
+                                    Blogs
                                 </a></center>
                 </div>
-
+</div>
             </div>
         </div>
     </div>

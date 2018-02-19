@@ -21,6 +21,7 @@ Route::get('/about', 'PagesController@about')->name('about');
 
 
 Route::resource('articles', 'ArticlesController');
+
 /*
 Route::get('/articles', 'ArticlesController@index')->name('articles');
 Route::get('/articles/create', 'ArticlesController@create' );

@@ -6,7 +6,7 @@ use App\Article;
 use Illuminate\Http\Request;
 // use App\Http\Requests;
 // use App\Http\Controllers\Request;
-use App\Http\Requests\CreateArticleRequest;
+use App\Http\Requests\ArticleRequest;
 
 
 class ArticlesController extends Controller
@@ -14,10 +14,11 @@ class ArticlesController extends Controller
     
     public function index()
     {
-            $data=Article::latest('created_at');
-        $articles=$data->paginate(2);
+        $data=Article::latest('created_at');
+        $articles=$data->paginate(4);
         $articles->setPath('articles');
-        return view ('articles.index',compact('articles'));    }
+        return view ('articles.index',compact('articles'));  
+      }
 
     
     public function create()
@@ -26,11 +27,11 @@ class ArticlesController extends Controller
     }
 
     
-    public function store(CreateArticleRequest $request)
+    public function store(ArticleRequest $request)
     {
         
         Article::create($request->all());
-        return redirect('articles');
+        return redirect('articles')->with('success','Item created successfully');
     }
 
    
@@ -48,7 +49,7 @@ class ArticlesController extends Controller
     }
 
    
-    public function update(Request $request, $id)
+    public function update(ArticleRequest $request, $id)
     {
         $article=Article::findOrfail($id);
         $article->update($request->all());
@@ -60,6 +61,9 @@ class ArticlesController extends Controller
    
     public function destroy($id)
     {
-        //
+        $article=Article::find($id)->delete();
+        return redirect()->route('articles.index')
+                        ->with('success','Item deleted successfully');
+
     }
 }

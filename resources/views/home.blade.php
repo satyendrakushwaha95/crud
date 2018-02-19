@@ -31,7 +31,7 @@ body {
                     <center>
                     <h3> Click to post.!! </h3>
                                       
-                    <a class="btn btn-success" href="{{ route('articles') }}">
+                    <a class="btn btn-success" href="{{ url('/articles') }}">
                                     Articles
                                 </a>
                     <a class="btn btn-success" href="{{ route('blogs') }}">

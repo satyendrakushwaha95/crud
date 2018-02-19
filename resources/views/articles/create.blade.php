@@ -6,37 +6,10 @@
 
 {!! Form::open(['url'=>'articles']) !!} 
 
-<!-- Name field -->
-<div class="form-group">
+@include('articles.form',['submitButtonText'=>'Add Article'])
 
-{!! Form::label('title', 'Title:') !!}
-{!! Form::text('title', null, ['class'=>'form-control']) !!}
-</div>
-
-<!-- body form input -->
-
-<div class="form-group">
-
-{!! Form::label('body', 'Body:') !!}
-{!! Form::textarea('body', null, ['class'=>'form-control']) !!}
-</div>
-
- <!-- submit button -->
-
-<div class="form-group">
-{!! Form::submit ('Add Article', ['class'=> 'btn btn-primary from-control']) !!}
-</div>
-
-
-</div>
 {!! Form::close() !!}
 
-@if ($errors->any())
-<ul class="alert alert-danger">
-	@foreach($errors->all() as $error)
-	<li> {{$error}} </li>
-@endforeach
-</ul>
-@endif
+@include('errors.list')
 
 @endsection

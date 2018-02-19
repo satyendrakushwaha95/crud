@@ -3,39 +3,63 @@
 namespace App\Http\Controllers;
 
 use App\Article; 
-use App\Http\Requests;
-use Request; 
+use Illuminate\Http\Request;
+// use App\Http\Requests;
+// use App\Http\Controllers\Request;
+use App\Http\Requests\CreateArticleRequest;
+
 
 class ArticlesController extends Controller
 {
+    
     public function index()
     {
-    	$data=Article::latest('created_at');
+            $data=Article::latest('created_at');
         $articles=$data->paginate(2);
         $articles->setPath('articles');
-    	return view ('articles.index',compact('articles'));
+        return view ('articles.index',compact('articles'));    }
 
+    
+    public function create()
+    {
+            return view ('articles.create');
     }
 
+    
+    public function store(CreateArticleRequest $request)
+    {
+        
+        Article::create($request->all());
+        return redirect('articles');
+    }
+
+   
     public function show($id)
     {
-    	$article=Article::findOrfail($id);
-    	return view('articles.show', compact('article'));
+        $article=Article::findOrfail($id);
+        return view('articles.show', compact('article'));
     }
 
- public function create()
+   
+    public function edit($id)
     {
-    	return view ('articles.create');
+         $article=Article::findOrfail($id);
+        return view('articles.edit',compact('article'));
     }
 
-  public function store()
+   
+    public function update(Request $request, $id)
     {
-    	 
-    	$input=Request::all();
+        $article=Article::findOrfail($id);
+        $article->update($request->all());
 
-    	Article::create($input);
+        return redirect('articles');
 
-    	return redirect('articles');
     }
- 
-} 
+
+   
+    public function destroy($id)
+    {
+        //
+    }
+}

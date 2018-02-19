@@ -20,12 +20,13 @@ Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/about', 'PagesController@about')->name('about');
 
 
-
+Route::resource('articles', 'ArticlesController');
+/*
 Route::get('/articles', 'ArticlesController@index')->name('articles');
 Route::get('/articles/create', 'ArticlesController@create' );
 Route::get('/articles/{id}', 'ArticlesController@show');
 Route::post('articles', 'ArticlesController@store');
-
+*/
 
 Route::get('/blogs','BlogsController@index')->name('blogs');
 Route::get('/blogs/create','BlogsController@create');

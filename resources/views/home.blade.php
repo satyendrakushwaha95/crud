@@ -34,7 +34,7 @@ body {
                     <a class="btn btn-success" href="{{ url('/articles') }}">
                                     Articles
                                 </a>
-                    <a class="btn btn-success" href="{{ route('blogs') }}">
+                    <a class="btn btn-success" href="{{ url('/blogs') }}">
                                     Blogs
                                 </a></center>
                 </div>

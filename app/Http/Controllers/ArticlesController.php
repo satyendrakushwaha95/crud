@@ -23,7 +23,7 @@ class ArticlesController extends Controller
     
     public function create()
     {
-            return view ('articles.create');
+        return view ('articles.create');
     }
 
     
@@ -63,7 +63,7 @@ class ArticlesController extends Controller
     {
         $article=Article::find($id)->delete();
         return redirect()->route('articles.index')
-                        ->with('success','Item deleted successfully');
+        ->with('success','Item deleted successfully');
 
     }
 }

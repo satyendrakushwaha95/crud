@@ -1,11 +1,3 @@
-@extends('layouts.app')
-@section('content')
-
-<h1> Write your Blogs </h1>
-<hr/>
-
-{!! Form::open(['url'=>'blogs']) !!} 
-
 <!-- Name field -->
 <div class="form-group">
 
@@ -24,12 +16,7 @@
  <!-- submit button -->
 
 <div class="form-group">
-{!! Form::submit ('Add Blog', ['class'=> 'btn btn-primary from-control']) !!}
+{!! Form::submit ($submitButtonText, ['class'=> 'btn btn-primary from-control']) !!}
 </div>
 
 
-</div>
-{!! Form::close() !!}
-@include('errors.list')
-
-@endsection

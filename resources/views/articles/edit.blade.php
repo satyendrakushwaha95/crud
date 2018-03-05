@@ -6,7 +6,7 @@
 
 {!! Form::model($article,['method'=>'PATCH','action'=>['ArticlesController@update', $article->id]]) !!} 
 
-@include('articles.form',['submitButtonText'=>'Edit Article'])
+<span>@include('articles.form',['submitButtonText'=>'Update Article'])<a href="{{url('articles')}}" class="btn btn-info" role="button">Cancel</a></span>
 
 
 </div>

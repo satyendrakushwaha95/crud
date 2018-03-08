@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
     <div id="app">
@@ -46,6 +48,9 @@
                     <ul class="nav navbar-nav navbar-left">
                     @if (Auth::user())
 
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{'home'}}">Home</a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{'about'}}">About <span class="sr-only">(current)</span></a>
                     </li>
@@ -109,5 +114,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>

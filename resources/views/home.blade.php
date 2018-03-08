@@ -37,6 +37,9 @@ body {
                     <a class="btn btn-success" href="{{ url('/blogs') }}">
                                     Blogs
                                 </a></center>
+                    <a class="btn btn-danger" href="{{ url('/articledown') }}">
+                                    Article Dropdown
+                                </a></center>
                 </div>
 </div>
             </div>

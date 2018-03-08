@@ -15,13 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact', 'PagesController@contact')->name('contact');
-
-Route::get('/about', 'PagesController@about')->name('about');
-Route::get('/profile', 'PagesController@about')->name('profile');
-
-
 Route::resource('articles', 'ArticlesController');
+
+
+
+Route::get('/articledown', 'ArticlesController@down')->name('articledown');
+Route::any('/articleview', 'ArticlesController@showDown')->name('articleview');
+
+
+
+
+
 Route::resource('blogs', 'BlogsController');
 /*
 Route::get('/articles', 'ArticlesController@index')->name('articles');
@@ -36,7 +40,9 @@ Route::post('/blogs','BlogsController@store');
 
 */
 
-
+Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::get('/about', 'PagesController@about')->name('about');
+Route::get('/profile', 'PagesController@profile')->name('profile');
 
 Auth::routes();
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Article; 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+Use Route;
 // use App\Http\Requests;
 // use App\Http\Controllers\Request;
 use App\Http\Requests\ArticleRequest;
@@ -66,4 +68,25 @@ class ArticlesController extends Controller
         ->with('success','Item deleted successfully');
 
     }
+
+     
+      public function down()
+    {
+        $articles=Article::get();
+       // dd($articles);
+        $data=['article'=>$articles];
+        return view('pages.articledown',$data);
+    }
+
+    
+    public function showDown()
+    {
+        $jsonArray=Array();
+        $id=Input::get("id");
+        $article=Article::find($id);
+        $jsonArray['error']='success';
+        $jsonArray['article']=$article;
+        return json_encode($jsonArray);
+    }
+
 }

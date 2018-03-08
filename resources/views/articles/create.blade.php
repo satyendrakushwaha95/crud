@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1> Write your Articles </h1>
+<h1> Write your Articles <a href="{{url('articles')}}" class="btn btn-info" role="button">Back</a></h1>
 <hr/>
 
 {!! Form::open(['url'=>'articles']) !!} 

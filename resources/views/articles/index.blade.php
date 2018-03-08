@@ -31,20 +31,13 @@
 <td>{{ $article->body}}</td>
 <td>{{$article->created_at}}</td>
 <!-- modal implementing -->
-
-
-
 <td>
 <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary">Edit</a>
-{!! Form::open(['method' => 'DELETE','route' => ['articles.destroy', $article->id],'style'=>'display:inline']) !!}
+<td>{!! Form::open(['method' => 'DELETE','route' => ['articles.destroy', $article->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
-</td>
-<td>
-<!--<a href="{{action('ArticlesController@show',[$article->id])}}" class="btn btn-info">View</a>
--->
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal{{$article->id}}">View</button>
+<td><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal{{$article->id}}">View</button>
 
 <!-- Modal -->
 <div id="myModal{{$article->id}}" class="modal fade" role="dialog">

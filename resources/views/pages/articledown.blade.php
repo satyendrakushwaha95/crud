@@ -4,7 +4,7 @@
 
 <div class="container">
 <select id="article" name="select">
-
+<h1>Git testing </h1>
 
 	@foreach($article as $art)
  	<option value="{{$art->id}}">{{$art->title}}</option>

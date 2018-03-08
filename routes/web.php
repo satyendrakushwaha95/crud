@@ -22,8 +22,7 @@ Route::resource('articles', 'ArticlesController');
 Route::get('/articledown', 'ArticlesController@down')->name('articledown');
 Route::any('/articleview', 'ArticlesController@showDown')->name('articleview');
 
-
-
+Route::post('/addArticle','ArticlesController@addArticle')->name('addArticle');
 
 
 Route::resource('blogs', 'BlogsController');

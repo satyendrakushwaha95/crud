@@ -39,11 +39,8 @@
 <!-- Trigger the modal with a button -->
 <td><button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#myModal{{$article->id}}">View</button>
 
-<!-- Modal -->
 <div id="myModal{{$article->id}}" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -60,8 +57,6 @@
   </div>
 </div>
 
-
-<!-- modal implementing -->
 </td>
 </tr>
 @endforeach
@@ -69,10 +64,73 @@
 </table>
 <?php echo $articles->render(); ?>
 
+<div class="container">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addModal">Add Article</button>
+  
+  <div class="modal fade" id="addModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Article</h4>
+        </div>
+        <div class="modal-body">
+          
 
+<form id="addArticle" enctype="multipart/form-data" class="form-horizontal" role="form" method="POST">
+<div class="form-group">
+{!! Form::label('title', 'Title:') !!}
+{!! Form::text('title', null, ['class'=>'form-control']) !!}
+</div>
+<div class="form-group">
+{!! Form::label('body', 'Body:') !!}
+{!! Form::text('body', null, ['class'=>'form-control']) !!}
+</div>
 
+        </div> <!--modal body closing -->
+        <div class="modal-footer">     
+          <button type="button" id="submit" class="btn btn-info submitForm">Submit</button>         
+          <button type="button" id="reset" class="btn btn-danger">Clear</button>
+        </div>
+</form>
+      </div>    
+    </div>
+  </div>
+  
+<script>
 
+  $(document).ready(function(){
+  $(".submitForm").click(function(){
+  //alert("checking");
+        
+        var title = $("input[name=title]").val();
 
+        var body = $("input[name=body]").val();
+
+        
+        $.ajax({
+
+           type:'POST',
+
+           url:'{{route("addArticle")}}',
+
+           data:{title:title, body:body},
+
+           success:function(data){
+
+              alert(data.success);
+
+           }
+
+        });
+
+  });
+
+  });
+
+</script>
+
+</div>
 @endsection
 
 

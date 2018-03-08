@@ -4,10 +4,11 @@
 
 <div class="container">
 <select id="article" name="select">
-<h1>Git testing </h1>
 
 	@foreach($article as $art)
+
  	<option value="{{$art->id}}">{{$art->title}}</option>
+ 	
  	@endforeach 
 
 
@@ -19,7 +20,7 @@
 	$("#article").change(function(){
 
 		var id=$(this).find('option:selected').val();
-      alert(id);
+     // alert(id);
    
    	$.ajax({
                type: "POST",

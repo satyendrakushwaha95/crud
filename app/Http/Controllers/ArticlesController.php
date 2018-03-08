@@ -25,6 +25,7 @@ class ArticlesController extends Controller
     
     public function create()
     {
+
         return view ('articles.create');
     }
 
@@ -34,6 +35,11 @@ class ArticlesController extends Controller
         
         Article::create($request->all());
         return redirect('articles')->with('success','Item created successfully');
+
+
+
+        // Article::create($request->all());
+        // return redirect('articles')->with('success','Item created successfully');
     }
 
    
@@ -87,6 +93,22 @@ class ArticlesController extends Controller
         $jsonArray['error']='success';
         $jsonArray['article']=$article;
         return json_encode($jsonArray);
+    }
+
+    
+        public function addArticle()
+   
+    {
+        $article= new Article;
+        $article->title = Input::get('title');
+        $article->body = Input::get('body');
+        $article->save();
+        // Article::create(Input::all());
+        
+           //$input = request()->all();
+            //Article::create(Input::all());
+        return response()->json(['success'=>'Data Submitted']);
+
     }
 
 }

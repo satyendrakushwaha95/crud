@@ -1,4 +1,4 @@
-
+<!-- 
 @extends('layouts.app')
 @section('content')
 
@@ -10,4 +10,4 @@
 {{ $article->body }}
 
 </article>
-@endsection
+@endsection -->

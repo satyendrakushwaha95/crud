@@ -50,28 +50,37 @@ class ArticlesController extends Controller
     }
 
    
-    public function edit($id)
+    public function edit()
     {
+        $id=Input::get('id');
          $article=Article::findOrfail($id);
         return view('articles.edit',compact('article'));
     }
 
    
-    public function update(ArticleRequest $request, $id)
+    public function updateData(ArticleRequest $request)
     {
-        $article=Article::findOrfail($id);
-        $article->update($request->all());
+         //print_r(Input::all());exit; TO PRINT AT THIS INSTANCE
+          // $article->update($request->all());
+            // $article->title = $request->title;
+            // $article->body = $request->body;
 
-        return redirect('articles');
 
+        $id=Input::get('id');
+         $article=Article::find($id);
+        $article->title = Input::get('title');
+        $article->body = Input::get('body');
+      
+            $article->update();
+            return response()->json(['success'=>'Data Updated']);
     }
 
    
     public function destroy($id)
     {
         $article=Article::find($id)->delete();
-        return redirect()->route('articles.index')
-        ->with('success','Item deleted successfully');
+        //return response()->json($article);
+        return redirect()->route('articles.index')->with('success','Item deleted successfully');
 
     }
 
@@ -104,11 +113,13 @@ class ArticlesController extends Controller
         $article->body = Input::get('body');
         $article->save();
         // Article::create(Input::all());
-        
            //$input = request()->all();
             //Article::create(Input::all());
         return response()->json(['success'=>'Data Submitted']);
 
     }
+
+
+  
 
 }

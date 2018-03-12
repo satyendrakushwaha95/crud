@@ -22,8 +22,22 @@ Route::resource('articles', 'ArticlesController');
 Route::get('/articledown', 'ArticlesController@down')->name('articledown');
 Route::any('/articleview', 'ArticlesController@showDown')->name('articleview');
 
+
 Route::post('/addArticle','ArticlesController@addArticle')->name('addArticle');
-Route::post('/editArticle','ArticlesController@editArticle')->name('editArticle');
+
+Route::any('/edit','ArticlesController@edit')->name('edit');
+Route::post('/update','ArticlesController@update')->name('update');
+Route::post('/updateData','ArticlesController@updateData')->name('updateData');
+Route::post('/delete','ArticlesController@delete')->name('delete');
+
+
+
+
+
+
+
+
+
 
 Route::resource('blogs', 'BlogsController');
 /*

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog; 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 // use App\Http\Requests;
 // use App\Http\Controllers\Request;
 use App\Http\Requests\BlogRequest;
@@ -30,7 +31,19 @@ class BlogsController extends Controller
     public function store(BlogRequest $request)
     {
         
-        Blog::create($request->all());
+        // print_r(Input::get('file'));
+        // die;
+        // Blog::create($request->all());
+        // $file = $request->file('file');
+        $blog= new Blog;
+        $blog->title = Input::get('title');
+        $blog->content = Input::get('content');
+        $blog->file = Input::file('file');
+        $destinationPath = 'storage';
+
+        $blog->file->move($destinationPath);
+        $blog->save();
+
         return redirect('blogs')->with('success','Item created successfully');
     }
 

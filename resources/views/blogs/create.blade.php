@@ -4,7 +4,9 @@
 <h1> Write your Blogs </h1>
 <hr/>
 
-{!! Form::open(['url'=>'blogs']) !!} 
+{!! Form::open( [ 'url' => 'blogs', 'method' => 'post', 'files' => true ] ) !!}
+
+<!-- {!! Form::open(array('url'=>'blogs', 'files'=>'true')) !!}  -->
 
 <!-- Name field -->
 <div class="form-group">
@@ -20,6 +22,13 @@
 {!! Form::label('content', 'Content:') !!}
 {!! Form::textarea('content', null, ['class'=>'form-control']) !!}
 </div>
+
+ <div class="form-group">
+{!! Form::label('file', 'Choose file to upload:') !!}
+{!! Form::file('file') !!}
+
+</div> 
+
 
  <!-- submit button -->
 

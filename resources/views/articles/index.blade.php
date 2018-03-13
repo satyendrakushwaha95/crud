@@ -4,35 +4,7 @@
 
 <div class="container"><p><span style="font-style: bold ;font-size:35px">Articles</span>
 <button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#addModal">Add Article</button></p>
-
-<!-- ---------------------------------------------------------------------------------- -->
-
-<div class="container" >
-<table class="table"> 
-<tr class="danger">
-<th>ID</th>
-<th>Name </th>
-<th>Body </th>
-<th>Time </th>
-<th>Action</th>
-</tr>
-@foreach($articles as $article)
-<tr class="info">
-<td>{{ $article->id }}</td>
-<td>{{ $article->title }} </td>
-<td>{{ $article->body}}</td>
-<td>{{$article->created_at}}</td>
-<!-- modal implementing -->
-<td>
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal{{$article->id}}"><i class="fa fa-eye" aria-hidden="true">View</i></button>
-<button type="button" class="btn btn-info btn-primary editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button>
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-remove" aria-hidden="true">Delete</i></button>
-
-<!-- 
-{!! Form::open(['method' => 'DELETE','route' => ['articles.destroy', $article->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete Normal', ['class' => 'btn btn-danger']) !!}
-            {!! Form::close() !!} -->
-
+ 
  <!-- ----------------------------- A D D --------------------------------------- --> 
 
  <div class="modal fade" id="addModal" role="dialog">
@@ -65,6 +37,35 @@
       </div>    
     </div>
   </div>
+
+<!-- ---------------------------------------------------------------------------------- -->
+
+<div class="container" >
+<table class="table"> 
+<tr class="danger">
+<th>ID</th>
+<th>Name </th>
+<th>Body </th>
+<th>Time </th>
+<th>Action</th>
+</tr>
+@foreach($articles as $article)
+<tr class="info">
+<td>{{ $article->id }}</td>
+<td>{{ $article->title }} </td>
+<td>{{ $article->body}}</td>
+<td>{{$article->created_at}}</td>
+<!-- modal implementing -->
+<td>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal{{$article->id}}"><i class="fa fa-eye" aria-hidden="true">View</i></button>
+<button type="button" class="btn btn-info btn-primary editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-remove" aria-hidden="true">Delete</i></button>
+
+<!-- 
+{!! Form::open(['method' => 'DELETE','route' => ['articles.destroy', $article->id],'style'=>'display:inline']) !!}
+            {!! Form::submit('Delete Normal', ['class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!} -->
+
 
  <!-- ----------------------------- E D I T --------------------------------------- --> 
   <div class="modal fade" id="editModal" role="dialog">

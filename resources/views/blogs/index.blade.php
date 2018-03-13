@@ -21,6 +21,7 @@
 <th>ID</th>
 <th>Name </th>
 <th>Content </th>
+<th>File </th>
 <th>Time </th>
 <th>Action</th>
 </tr>
@@ -29,8 +30,10 @@
 <td>{{ $blog->id }}</td>
 <td><a href="{{ action('BlogsController@show',[$blog->id]) }}"> {{ $blog->title }} </a> </td>
 <td>{{ $blog->content}}</td>
+<td>{{ $blog->file}}</td>
 <td>{{$blog->created_at}}</td>
 <td><a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-primary">Edit</a>
+<a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-primary">View</a>
 {!! Form::open(['method' => 'DELETE','route' => ['blogs.destroy', $blog->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}

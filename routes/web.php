@@ -39,6 +39,7 @@ Route::get('/deleteData','ArticlesController@deleteData')->name('deleteData');
 
 
 
+
 Route::resource('blogs', 'BlogsController');
 /*
 Route::get('/articles', 'ArticlesController@index')->name('articles');
@@ -56,6 +57,9 @@ Route::post('/blogs','BlogsController@store');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/profile', 'PagesController@profile')->name('profile');
+
+Route::get('/uploadfile','UploadFileController@index');
+Route::post('/uploadfile','UploadFileController@showUploadFile');
 
 Auth::routes();
 

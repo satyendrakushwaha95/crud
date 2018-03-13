@@ -25,12 +25,13 @@
 <!-- modal implementing -->
 <td>
 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal{{$article->id}}"><i class="fa fa-eye" aria-hidden="true">View</i></button>
-<button type="button" class="btn btn-info btn-primary editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal">Edit</button>
+<button type="button" class="btn btn-info btn-primary editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-remove" aria-hidden="true">Delete</i></button>
 
-<td>
+<!-- 
 {!! Form::open(['method' => 'DELETE','route' => ['articles.destroy', $article->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-            {!! Form::close() !!}
+            {!! Form::submit('Delete Normal', ['class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!} -->
 
  <!-- ----------------------------- A D D --------------------------------------- --> 
 
@@ -102,6 +103,27 @@
     </div>
   </div>
 
+ <!-- ----------------------------------- D E L E T E -------------------------------------- -->
+
+<div class="modal fade{{$article->id}}" id="deleteModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+       <!--  <div class="modal-body modalContent">  -->      
+<div class="modal-body"> 
+<form id="deleteModal" enctype="multipart/form-data" class="form-horizontal" role="form" method="get">
+<div class="form-group"> 
+        <input id="deleteId" name="id" type="hidden" value="{{ $article->id }}">
+</div>
+<h3>Are you sure.??</h3>
+           <div class="modal-footer">
+          <button type="button" class="btn btn-danger deleteData">Delete</button>  
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+      </div>    
+    </div>
+  </div>
+  </div>
 
   <!-- ----------------------------------- V I E W -------------------------------------- --> 
 
@@ -116,7 +138,7 @@
         Body: {{$article->body}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
 
@@ -183,11 +205,22 @@
             }
         });
     });
+
+$(".deleteData").on('click', function(){
+        var id=$("#deleteId").val();
+        $.ajax({
+         
+            //type: 'POST',
+            url: '{{route("deleteData")}}',
+            type: 'GET',
+            data: {id:id
+            },
+            success: function(data) {
+                window.location.href = "{{url('articles')}}";
+            }
+        });
 });
-
-
-
-
+});
 </script>
 
 

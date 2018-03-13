@@ -119,7 +119,16 @@ class ArticlesController extends Controller
 
     }
 
+    function deleteData(Request $request)
+    {
+        $article= Article::find($request->input('id'));
+        if($article->delete())
+        {
+            echo 'Data Deleted';
+        }
 
+
+    }
   
 
 }

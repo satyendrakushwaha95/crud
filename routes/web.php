@@ -28,7 +28,7 @@ Route::post('/addArticle','ArticlesController@addArticle')->name('addArticle');
 Route::any('/edit','ArticlesController@edit')->name('edit');
 Route::post('/update','ArticlesController@update')->name('update');
 Route::post('/updateData','ArticlesController@updateData')->name('updateData');
-Route::post('/delete','ArticlesController@delete')->name('delete');
+Route::get('/deleteData','ArticlesController@deleteData')->name('deleteData');
 
 
 

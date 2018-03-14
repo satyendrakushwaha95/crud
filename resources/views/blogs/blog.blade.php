@@ -13,6 +13,13 @@
 {!! Form::textarea('content', null, ['class'=>'form-control']) !!}
 </div>
 
+ <div class="form-group">
+{!! Form::label('file', 'Choose file to upload:') !!}
+<!-- {!! Form::file('file') !!}--> 
+{!! Form::file('file', array('class' => 'image')) !!}
+
+</div> 
+
  <!-- submit button -->
 
 <div class="form-group">

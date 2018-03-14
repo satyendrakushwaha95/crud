@@ -15,7 +15,7 @@ class AddFileToBlogs extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) 
         {
-            $table->string('file');
+            $table->string('file')->nullable();
         });
     }
 

@@ -28,7 +28,8 @@
 @foreach($blogs as $blog)
 <tr class="info">
 <td>{{ $blog->id }}</td>
-<td><a href="{{ action('BlogsController@show',[$blog->id]) }}"> {{ $blog->title }} </a> </td>
+<!-- <td><a href="{{ action('BlogsController@show',[$blog->id]) }}"> {{ $blog->title }} </a> </td> -->
+<td>{{ $blog->title }}</td>
 <td>{{ $blog->content}}</td>
 <td>{{ $blog->file}}</td>
 <td>{{$blog->created_at}}</td>

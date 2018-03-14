@@ -13,7 +13,7 @@
 <br>
 
 <span STYLE="color:red;font-weight:bold;font-size:18pt">File: </span> {{ $blog->file }}
-
+<img src='{{ asset($blog->file) }}'>
 
 </div>
 @endsection

@@ -31,19 +31,20 @@ class BlogsController extends Controller
     public function store(BlogRequest $request)
     {
         
-        // print_r(Input::get('file'));
-        // die;
-        // Blog::create($request->all());
-        // $file = $request->file('file');
+        
+        $file=Input::file('file');
+
         $blog= new Blog;
         $blog->title = Input::get('title');
         $blog->content = Input::get('content');
-        $blog->file = Input::file('file');
-        $destinationPath = 'storage';
-
-        $blog->file->move($destinationPath);
+        $destinationPath = 'storage';      
         $blog->save();
-
+        $blogId=$blog->id;
+        $file->move($destinationPath);  
+        $BlogUpdate=Blog::find($blog->id);
+        $BlogUpdate->file=$blog->id.'-'.$file->getClientOriginalName();
+        $BlogUpdate->update();
+        
         return redirect('blogs')->with('success','Item created successfully');
     }
 

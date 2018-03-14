@@ -4,7 +4,7 @@
 <h1> Write your Blogs </h1>
 <hr/>
 
-{!! Form::open( [ 'url' => 'blogs', 'method' => 'post', 'files' => true ] ) !!}
+{!! Form::open( [ 'url' => 'blogs', 'method' => 'post', 'enctype' => 'multipart/form-data', 'files' => true ] ) !!}
 
 <!-- {!! Form::open(array('url'=>'blogs', 'files'=>'true')) !!}  -->
 
@@ -25,7 +25,8 @@
 
  <div class="form-group">
 {!! Form::label('file', 'Choose file to upload:') !!}
-{!! Form::file('file') !!}
+<!-- {!! Form::file('file') !!}--> 
+{!! Form::file('file', array('class' => 'image')) !!}
 
 </div> 
 

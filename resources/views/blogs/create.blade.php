@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
+<div class="container">
 <h1> Write your Blogs </h1>
 <hr/>
 
@@ -9,6 +10,7 @@
 <!-- {!! Form::open(array('url'=>'blogs', 'files'=>'true')) !!}  -->
 
 <!-- Name field -->
+
 <div class="form-group">
 
 {!! Form::label('title', 'Title:') !!}
@@ -30,6 +32,22 @@
 
 </div> 
 
+ <strong>Select to add articles </strong>
+ <div class="form-group">
+
+<!-- <select id="multi" name="article" multiple>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select> -->
+
+<select class="multiselect" multiple="true" name="article[]" style="width:200px;">
+	@foreach($articles as $key => $article)
+        <option value="{{$article->id}}">{{$article->title}}</option>
+        @endforeach
+</select>
+</div>
 
  <!-- submit button -->
 
@@ -41,5 +59,10 @@
 </div>
 {!! Form::close() !!}
 @include('errors.list')
-
+</div>
+<script>
+$(function() {
+    $(".multiselect").chosen();
+});
+</script>
 @endsection

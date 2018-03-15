@@ -12,8 +12,13 @@
 <span STYLE="color:red;font-weight:bold;font-size:18pt">Content: </span>{{ $blog->content }}
 <br>
 
-<span STYLE="color:red;font-weight:bold;font-size:18pt">File: </span> {{ $blog->file }}
-<img src='{{ asset($blog->file) }}'>
+<span STYLE="color:red;font-weight:bold;font-size:18pt">File: </span> 
+<a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blog->file }}</a>
+
+
+<!-- <img src='{{ asset($blog->file) }}'> 
+
+{{ Html::image('$blog->file') }} -->
 
 </div>
 @endsection

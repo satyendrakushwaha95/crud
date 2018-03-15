@@ -6,7 +6,7 @@
 
 {!! Form::model($blog,['method'=>'PATCH','action'=>['BlogsController@update', $blog->id]]) !!} 
 
-@include('blogs.blog',['submitButtonText'=>'Edit Blog'])
+@include('blogs.blog',['submitButtonText'=>'Update Blog'])
 
 
 </div>

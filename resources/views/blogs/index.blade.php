@@ -22,6 +22,7 @@
 <th>Name </th>
 <th>Content </th>
 <th>File </th>
+<th>Article</th>
 <th>Time </th>
 <th>Action</th>
 </tr>
@@ -31,7 +32,20 @@
 <!-- <td><a href="{{ action('BlogsController@show',[$blog->id]) }}"> {{ $blog->title }} </a> </td> -->
 <td>{{ $blog->title }}</td>
 <td>{{ $blog->content}}</td>
-<td>{{ $blog->file}}</td>
+<!-- <td>{{ $blog->file}}</td> -->
+<td><a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blog->file }}</a></td>
+
+
+<td>
+@foreach($blog->hasArticle as $k=>$v)
+
+{{$v->title}}<br>
+
+@endforeach
+</td>
+
+
+
 <td>{{$blog->created_at}}</td>
 <td><a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-primary">Edit</a>
 <a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-primary">View</a>

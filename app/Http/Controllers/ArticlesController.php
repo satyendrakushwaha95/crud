@@ -16,10 +16,29 @@ class ArticlesController extends Controller
     
     public function index()
     {
-        $data=Article::latest('created_at');
-        $articles=$data->paginate(10);
-        $articles->setPath('articles');
-        return view ('articles.index',compact('articles'));  
+        $result = Article::orderBy("id","desc");
+        if(){
+            if(Input::get("searchid")){
+            $result=$result->where("id",Input::get("searchid"));
+        }
+
+        if(Input::get("searchtitle")){
+            $result=$result->where("title",'like','%'.Input::get("searchtitle").'%');
+        }
+        if(Input::get("searchbody")){
+            $result=$result->where("body",'like','%'.Input::get("searchbody").'%');
+        }
+            }
+            $result=$result->paginate(10);
+           $articles  =$result;
+           return view ('articles.index',compact('articles'));
+           else{
+            return ("Bad Search");
+           }
+        // $data=Article::latest('created_at');
+        // $articles=$data->paginate(10);
+        // $articles->setPath('articles');
+        // return view ('articles.index',compact('articles'));  
       }
 
     

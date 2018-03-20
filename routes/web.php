@@ -39,7 +39,6 @@ Route::get('/deleteData','ArticlesController@deleteData')->name('deleteData');
 
 
 
-
 Route::resource('blogs', 'BlogsController');
 /*
 Route::get('/articles', 'ArticlesController@index')->name('articles');

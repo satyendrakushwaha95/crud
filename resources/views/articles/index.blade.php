@@ -1,9 +1,25 @@
 
 @extends('layouts.app')
 @section('content')
-
+<style type="text/css">
+div.inline { display:inline; }
+</style>
 <div class="container"><p><span style="font-style: bold ;font-size:35px">Articles</span>
-<button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#addModal">Add Article</button></p>
+<button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#addModal">Add Article</button>
+<!-- ----------------------------- SEARCH FILTER ----------------------------------- --> 
+  <form class="form-inline" method="get" action="{{ url('/articles') }}">
+    <div class="form-group"><strong><span style="font-style: bold ;font-size:20px">Filter: </span></strong>
+      <input type="number" class="form-control" id="id" placeholder="Enter ID" name="searchid">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="title" placeholder="Enter Title" name="searchtitle">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="body" placeholder="Enter Body Elements" name="searchbody">
+    </div>
+    <button type="submit" class="btn btn-success">Search</button> <a class="btn btn-danger" href="{{url('articles')}}">Back to Index</a>
+  </form></p>
+</div>
  
  <!-- ----------------------------- A D D --------------------------------------- --> 
 

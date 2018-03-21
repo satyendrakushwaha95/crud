@@ -24,6 +24,11 @@ public function blogArticle()
 	return $this->hasMany('App\Has_article', 'blog_id');
 	}
 
+	public function user(){
+
+	return $this->belongsTo('App\User');
+		
+	}
 
 }
 

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\User;
 use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+Use Route;
 // use App\Http\Requests;
 // use App\Http\Controllers\Request;
 use App\Http\Requests\BlogRequest;
@@ -21,10 +23,26 @@ class BlogsController extends Controller
     
     public function index()
     {
-        $data=Blog::latest('created_at');
-        $blogs=$data->paginate(7);
-        $blogs->setPath('blogs');
-        return view ('blogs.index',compact('blogs'));  
+        $user_id= auth()->user()->id;
+        $blogs=Blog::where('user_id',$user_id);
+        //dd($blogs); 
+
+        //$result = Blog::orderBy("id","desc");
+        if(Input::get("searchid")){
+            $blogs=$blogs->where("id",Input::get("searchid"));
+        }
+
+        if(Input::get("searchtitle")){
+            $blogs=$blogs->where("title",'like','%'.Input::get("searchtitle").'%');
+        }
+        if(Input::get("searchbody")){
+            $blogs=$blogs->where("body",'like','%'.Input::get("searchbody").'%');
+        }
+
+           //  $result=$result->paginate(10);
+           $blogs  = $blogs->paginate(10);
+
+       return view ('blogs.index',compact('blogs'));  
       }
 
     
@@ -53,6 +71,9 @@ class BlogsController extends Controller
         $blog= new Blog;
         $blog->title = Input::get('title');
         $blog->content = Input::get('content');
+//to strore by id 
+        $blog->user_id = auth()->user()->id;
+
         $destinationPath = 'storage';      
         $blog->save();
         $blogId=$blog->id;

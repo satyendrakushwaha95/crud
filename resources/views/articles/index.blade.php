@@ -17,7 +17,7 @@ div.inline { display:inline; }
     <div class="form-group">
       <input type="text" class="form-control" id="body" placeholder="Enter Body Elements" name="searchbody">
     </div>
-    <button type="submit" class="btn btn-success">Search</button> <a class="btn btn-danger" href="{{url('articles')}}">Back to Index</a>
+    <button type="submit" class="btn btn-success">Search</button> <a class="btn btn-danger" href="{{url('articles')}}">Back to Index</a> <a href="{{ URL::route('data/download/articles') }}" class="btn btn-sm btn-primary pull-right">Download</a>
   </form></p>
 </div>
  

@@ -30,6 +30,13 @@ Route::post('/update','ArticlesController@update')->name('update');
 Route::post('/updateData','ArticlesController@updateData')->name('updateData');
 Route::get('/deleteData','ArticlesController@deleteData')->name('deleteData');
 
+Route::get('/data/download/articles',
+    [
+        'as' => 'data/download/articles',
+        'uses' => 'ArticlesController@getArticles'
+    ]
+);
+
 
 
 

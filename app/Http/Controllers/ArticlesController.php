@@ -10,6 +10,11 @@ Use Route;
 // use App\Http\Controllers\Request;
 use App\Http\Requests\ArticleRequest;
 
+use Illuminate\Database\Eloquent\Collection;
+use League\Csv\Writer;
+use Schema;
+use SplTempFileObject;
+
 
 class ArticlesController extends Controller
 {
@@ -17,8 +22,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $result = Article::orderBy("id","desc");
-        if(){
-            if(Input::get("searchid")){
+        if(Input::get("searchid")){
             $result=$result->where("id",Input::get("searchid"));
         }
 
@@ -28,13 +32,11 @@ class ArticlesController extends Controller
         if(Input::get("searchbody")){
             $result=$result->where("body",'like','%'.Input::get("searchbody").'%');
         }
-            }
+
             $result=$result->paginate(10);
            $articles  =$result;
            return view ('articles.index',compact('articles'));
-           else{
-            return ("Bad Search");
-           }
+
         // $data=Article::latest('created_at');
         // $articles=$data->paginate(10);
         // $articles->setPath('articles');
@@ -148,6 +150,21 @@ class ArticlesController extends Controller
 
 
     }
-  
+
+    private function createCsv(Collection $modelCollection, $articles){
+        $csv = Writer::createFromFileObject(new SplTempFileObject());
+        $csv->insertOne(Schema::getColumnListing($articles));
+        foreach ($modelCollection as $data)
+            {
+                $csv->insertOne($data->toArray());
+            }
+        $csv->output($articles . '.csv');
+    }
+
+    public function getArticles(){
+
+        $articles = Article::all();
+        $this->createCsv($articles, 'articles');
+    }
 
 }

@@ -43,10 +43,14 @@ Route::get('/data/download/articles',
 
 
 
-
-
-
 Route::resource('blogs', 'BlogsController');
+Route::get('/data/download/blogs',
+    [
+        'as' => 'data/download/blogs',
+        'uses' => 'BlogsController@getBlogs'
+    ]
+);
+Route::get('/download', 'BlogsController@download');
 /*
 Route::get('/articles', 'ArticlesController@index')->name('articles');
 Route::get('/articles/create', 'ArticlesController@create' );

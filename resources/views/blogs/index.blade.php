@@ -2,11 +2,13 @@
 @extends('layouts.app')
 @section('content')
 
-<h1> Blogs 
+<div class="container">
+    <h1> Blogs 
 <a class="btn btn-success" href="{{url('/blogs/create')}}">
                                     Add New Blog
-                                </a>
- </h1>
+                                </a> <a href="{{ URL::route('data/download/blogs') }}" class="btn btn-sm-+ btn-default pull-right"><i class="fa fa-download" aria-hidden="true"></i></a> 
+                                <a href="{{ url('/download') }}" class="btn btn-sm-+ btn-default pull-right"><i class="fa fa-download" aria-hidden="true"></i>(WC)</a>
+ </h1></div>
 
    <!-- for message -->
     @if ($message = Session::get('success'))

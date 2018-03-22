@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
+Use Route;
 
 class PagesController extends Controller
 {
@@ -26,7 +29,9 @@ class PagesController extends Controller
 
      public function profile()
     {
-        return view('pages.profile');
+    $user = Auth::user();
+    return view('pages.profile')->with(['user' => $user]);
     }
+
 
 }

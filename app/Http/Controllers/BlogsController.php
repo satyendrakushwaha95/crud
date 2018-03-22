@@ -27,6 +27,15 @@ class BlogsController extends Controller
       $user_id= auth()->user()->id;
       $user_role= auth()->user()->role;
       $blogs=Blog::orderBy("id","desc");
+  
+      //search field me lane k liye variable banane ka fir usko btane ka  - 
+      // $searchid = Input::get("searchid");
+      // $searchtitle = Input::get("searchtitle");
+      // $searchbody = Input::get("searchbody");
+      // if(Input::has("searchid")){
+      //     $blogs=$blogs->where("id",Input::get("searchid")); }
+
+
        if($user_role==2){
            $blogs=$blogs->where('user_id',$user_id);
        }
@@ -37,6 +46,7 @@ class BlogsController extends Controller
         //dd($blogs);
 
         //$result = Blog::orderBy("id","desc");
+        
         if(Input::get("searchid")){
             $blogs=$blogs->where("id",Input::get("searchid"));
         }
@@ -44,14 +54,14 @@ class BlogsController extends Controller
         if(Input::get("searchtitle")){
             $blogs=$blogs->where("title",'like','%'.Input::get("searchtitle").'%');
         }
-        if(Input::get("searchbody")){
-            $blogs=$blogs->where("body",'like','%'.Input::get("searchbody").'%');
+        if(Input::get("searchcontent")){
+            $blogs=$blogs->where("content",'like','%'.Input::get("searchcontent").'%');
         }
 
            //  $result=$result->paginate(10);
            $blogs  = $blogs->paginate(10);
 
-       return view ('blogs.index',compact('blogs'));  
+       return view ('blogs.index',compact('blogs','searchid'));  
       }
 
     
@@ -117,6 +127,8 @@ class BlogsController extends Controller
         $blog->update($request->all());
 
         return redirect('blogs');
+
+        
 
     }
 

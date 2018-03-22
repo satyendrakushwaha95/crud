@@ -11,13 +11,14 @@
 
  <form class="form-inline" method="get" action="{{ url('/blogs') }}">
     <div class="form-group"><strong><span style="font-style: bold ;font-size:20px">Filter: </span></strong>
-      <input type="number" class="form-control" id="id" placeholder="Enter ID" name="searchid">
+       <input type="number" class="form-control" id="id" value="{{ isset($_GET['searchid'])?$_GET['searchid']:'' }}" placeholder="Enter ID" name="searchid"> 
+   
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="title" placeholder="Enter Title" name="searchtitle">
+      <input type="text" class="form-control" id="title" value="{{ isset($_GET['searchtitle'])?$_GET['searchtitle']:''  }}" placeholder="Enter Title" name="searchtitle">
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="body" placeholder="Enter Body Elements" name="searchbody">
+      <input type="text" class="form-control" id="content" value="{{ isset($_GET['searchcontent'])?$_GET['searchcontent']:''  }}" placeholder="Enter Content Elements" name="searchcontent">
     </div>
     <button type="submit" class="btn btn-success">Search</button> <a class="btn btn-danger" href="{{url('blogs')}}">Reset</a> 
   </form></div>

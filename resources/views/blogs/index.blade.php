@@ -4,11 +4,11 @@
 
 <div class="container">
     <h1> Blogs 
-<a class="btn btn-success" href="{{url('/blogs/create')}}">
-                                    Add New Blog
-                                </a> <a href="{{ URL::route('data/download/blogs') }}" class="btn btn-sm-+ btn-default pull-right"><i class="fa fa-download" aria-hidden="true"></i></a> 
-                                <a href="{{ url('/download') }}" class="btn btn-sm-+ btn-default pull-right"><i class="fa fa-download" aria-hidden="true"></i>(WC)</a>
+<a class="btn btn-success" href="{{url('/blogs/create')}}">Add New Blog</a> 
+<a href="{{ URL::route('data/download/blogs') }}" class="btn btn-sm-+ btn-default pull-right"><i class="fa fa-download" aria-hidden="true"></i></a>
+<a href="{{ url('/download') }}" class="btn btn-sm-+ btn-default pull-right"><i class="fa fa-download" aria-hidden="true"></i>(WC)</a>
  </h1>
+
  <form class="form-inline" method="get" action="{{ url('/blogs') }}">
     <div class="form-group"><strong><span style="font-style: bold ;font-size:20px">Filter: </span></strong>
       <input type="number" class="form-control" id="id" placeholder="Enter ID" name="searchid">
@@ -24,7 +24,7 @@
 
    <!-- for message -->
     @if ($message = Session::get('success'))
-       <div class="alert alert-success">
+        <div class="alert alert-success">
         <p>{{ $message }}</p>
         </div>
     @endif
@@ -37,7 +37,9 @@
 <th>Content </th>
 <th>File </th>
 <th>Article</th>
-<th>Time </th>
+<th>Created at </th>
+<th>Created by </th>
+<th>Updated at </th>
 <th>Action</th>
 </tr>
 @foreach($blogs as $blog)
@@ -49,7 +51,6 @@
 <!-- <td>{{ $blog->file}}</td> -->
 <td><a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blog->file }}</a></td>
 
-
 <td>
 @foreach($blog->hasArticle as $k=>$v)
 
@@ -58,11 +59,11 @@
 @endforeach
 </td>
 
-
-
 <td>{{$blog->created_at}}</td>
-<td><a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-primary">Edit</a>
-<a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-primary">View</a>
+<td>{{$blog->user->name}}</td>
+<td>{{$blog->updated_at}}</td>
+<td><a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-default"><i class="fa fa-edit" aria-hidden="true"></i></a>
+<a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-default"><i class="fa fa-eye" aria-hidden="true"></i></a>
 {!! Form::open(['method' => 'DELETE','route' => ['blogs.destroy', $blog->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
@@ -74,6 +75,4 @@
 <?php echo $blogs->render(); ?>
 
 @endsection
-
-
 

@@ -23,9 +23,18 @@ class BlogsController extends Controller
     
     public function index()
     {
-        $user_id= auth()->user()->id;
-        $blogs=Blog::where('user_id',$user_id);
-        //dd($blogs); 
+      $user= auth()->user();
+      $user_id= auth()->user()->id;
+      $user_role= auth()->user()->role;
+      $blogs=Blog::orderBy("id","desc");
+       if($user_role==2){
+           $blogs=$blogs->where('user_id',$user_id);
+       }
+
+        // $user=User::all();
+        // $user_id= auth()->user()->id;
+        // $blogs=Blog::where('user_id',$user_id);
+        //dd($blogs);
 
         //$result = Blog::orderBy("id","desc");
         if(Input::get("searchid")){
@@ -146,18 +155,20 @@ class BlogsController extends Controller
            fputcsv($temp_memory, $line, $delimiter);
        }
        /** rewrind the "file" with the csv lines * */
+      
        fseek($temp_memory, 0);
        /** modify header to be downloadable csv file * */
        header('Content-Type: application/csv');
        header('Content-Disposition: attachement; filename="' . $output_file_name . '";');
        /** Send file to browser for download */
        fpassthru($temp_memory);
+
    }
 
       public function download() {
        $details = [];
-       $arr = ['id', 'title', 'content'];
-       $blog = Blog::get(['id', 'title', 'content']);
+       $arr = ['id', 'title', 'content','file'];
+       $blog = Blog::get(['id', 'title', 'content','file']);
        $sampleBlog = [];
        array_push($sampleBlog, $arr);
        $arrP = [];
@@ -167,10 +178,12 @@ class BlogsController extends Controller
                $bg->id,
                $bg->title,
                $bg->content,
+               $bg->file,
 
            ];
            array_push($sampleBlog, $details);
        }
+       //dd($sampleBlog);
        return $this->getCsv($sampleBlog, 'blog_data.csv', ',');
    }
 

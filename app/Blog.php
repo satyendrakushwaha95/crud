@@ -13,10 +13,15 @@ class Blog extends Model
 'file'
     ];
 
+public function user(){
+
+	return $this->belongsTo('App\User');		
+	}
+
 public function hasArticle()
 	{
 
-	  return $this->belongsToMany('App\Article', 'has_articles', 'blog_id', 'article_id');
+	return $this->belongsToMany('App\Article', 'has_articles', 'blog_id', 'article_id');
 	}
 
 public function blogArticle()
@@ -24,11 +29,7 @@ public function blogArticle()
 	return $this->hasMany('App\Has_article', 'blog_id');
 	}
 
-	public function user(){
-
-	return $this->belongsTo('App\User');
-		
-	}
+	
 
 }
 

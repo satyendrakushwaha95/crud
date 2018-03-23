@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-<h1> Write your Blogs </h1>
+<h1> Write your Blogs <a class="btn btn-danger" href="{{url('blogs')}}">Back</a></h1>
 <hr/>
 
 {!! Form::open( [ 'url' => 'blogs', 'method' => 'post', 'enctype' => 'multipart/form-data', 'files' => true ] ) !!}

@@ -123,7 +123,7 @@ class BlogsController extends Controller
          $file=Blog::find('file');
           $file=Blog::find($id);
          
-        return view('blogs.edit',compact('blog'));
+        return view('blogs.edit',compact('blog','articles'));
     }
 
    
@@ -132,6 +132,7 @@ class BlogsController extends Controller
 
         $blog=Blog::findOrfail($id);
         $blog->update($request->all());
+        $blog->hasArticle()->sync(Input::get('article'));
 
         return redirect('blogs');
 

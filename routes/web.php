@@ -17,14 +17,10 @@ Route::get('/', function () {
 
 Route::resource('articles', 'ArticlesController');
 
-
-
 Route::get('/articledown', 'ArticlesController@down')->name('articledown');
 Route::any('/articleview', 'ArticlesController@showDown')->name('articleview');
 
-
 Route::post('/addArticle','ArticlesController@addArticle')->name('addArticle');
-
 Route::any('/edit','ArticlesController@edit')->name('edit');
 Route::post('/update','ArticlesController@update')->name('update');
 Route::post('/updateData','ArticlesController@updateData')->name('updateData');

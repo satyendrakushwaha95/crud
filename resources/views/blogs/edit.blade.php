@@ -28,11 +28,22 @@
 File:<a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blog->file }}</a><br>
 
 <div class="form-group">
-@foreach($blog->hasArticle as $k=>$v)
-
-{{$v->title}}<br>
-
-@endforeach
+	<strong>Articles: </strong>
+	<?php  //print_r($blog->blogArticle); die;?>
+<select class="multiselect articleMultiselect" multiple="true" id="multi" name="article[]" style="width:400px">
+	@foreach($articles as $key => $article)
+	@if($blog->blogArticle)
+	<?php  
+	$selected='';?>
+	@foreach($blog->blogArticle as $k=>$v)
+    @if($article->id==$v->article_id)
+    <?php $selected="selected";?>
+    @endif
+	@endforeach
+	@endif
+        <option {{ $selected}} value="{{$article->id}}">{{$article->title}}</option>
+        @endforeach
+</select>
 </div>
 </div> 
 
@@ -43,5 +54,11 @@ File:<a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blo
 </div>
 </div>
 {!! Form::close() !!}
+
+<script>
+$(function() {
+     $(".articleMultiselect").chosen();
+});
+</script>
 @include('errors.list')
 @endsection

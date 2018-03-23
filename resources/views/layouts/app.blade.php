@@ -9,13 +9,25 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script src="{{ asset('js/app.js') }}"></script>
+<!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<!-- Chosen --> 
+         
+    <script src="{{ asset('js/chosen.jquery.js') }}"></script>
+    <link href="{{ asset('css/chosen.css') }}" rel="stylesheet"> 
+
+    
+    <script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
+    <link href="{{ asset('css/chosen.min.css') }}" rel="stylesheet">
+<!-- AJAX -->
+    
+    
+        
 </head>
 <body>
     <div id="app">
@@ -110,12 +122,11 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+   
 
 </body>
 </html>

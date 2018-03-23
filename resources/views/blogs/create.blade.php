@@ -35,18 +35,12 @@
  <strong>Select to add articles </strong>
  <div class="form-group">
 
-<!-- <select id="multi" name="article" multiple>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select> -->
-
-<select class="multiselect" multiple="true" name="article[]" style="width:200px;">
+<select class="multiselect articleMultiselect" multiple="true" id="multi" name="article[]" style="width:400px">
 	@foreach($articles as $key => $article)
         <option value="{{$article->id}}">{{$article->title}}</option>
         @endforeach
 </select>
+
 </div>
 
  <!-- submit button -->
@@ -60,9 +54,11 @@
 {!! Form::close() !!}
 @include('errors.list')
 </div>
+
 <script>
 $(function() {
-    $(".multiselect").chosen();
+     $(".articleMultiselect").chosen();
 });
 </script>
+
 @endsection

@@ -20,8 +20,8 @@
     <div class="form-group">
       <input type="text" class="form-control" id="content" value="{{ isset($_GET['searchcontent'])?$_GET['searchcontent']:''  }}" placeholder="Enter Content Elements" name="searchcontent">
     </div>
-    <button type="submit" class="btn btn-success">Search</button> <a class="btn btn-danger" href="{{url('blogs')}}">Reset</a> 
-  </form></div>
+    <button type="submit" class="btn btn-success">Search</button> <a class="btn btn-danger" href="{{url('blogs')}}">Reset</a>
+  </form></div><br>
 
    <!-- for message -->
     @if ($message = Session::get('success'))

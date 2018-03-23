@@ -8,5 +8,8 @@
     You are logged in as: <h1>{{ $user->name }}</h1>
 
 
+   
+
+
 </div>
 @endsection

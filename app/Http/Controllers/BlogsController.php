@@ -116,19 +116,26 @@ class BlogsController extends Controller
    
     public function edit($id)
     {
+
+        $articles=Article::get();
          $blog=Blog::findOrfail($id);
+         $file=Input::file('file');
+         $file=Blog::find('file');
+          $file=Blog::find($id);
+         
         return view('blogs.edit',compact('blog'));
     }
 
    
     public function update(BlogRequest $request, $id)
-    {
+    {   
+
         $blog=Blog::findOrfail($id);
         $blog->update($request->all());
 
         return redirect('blogs');
 
-        
+
 
     }
 

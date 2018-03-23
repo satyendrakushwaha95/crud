@@ -31,10 +31,10 @@ File:<a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blo
 	<strong>Articles: </strong>
 	<?php  //print_r($blog->blogArticle); die;?>
 <select class="multiselect articleMultiselect" multiple="true" id="multi" name="article[]" style="width:400px">
+	
 	@foreach($articles as $key => $article)
 	@if($blog->blogArticle)
-	<?php  
-	$selected='';?>
+	<?php $selected='';?>
 	@foreach($blog->blogArticle as $k=>$v)
     @if($article->id==$v->article_id)
     <?php $selected="selected";?>

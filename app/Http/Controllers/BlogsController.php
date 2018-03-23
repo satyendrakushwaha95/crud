@@ -93,7 +93,7 @@ class BlogsController extends Controller
 //to strore by id 
         $blog->user_id = auth()->user()->id;
 
-        $destinationPath = 'storage';      
+        $destinationPath = 'storage/uploads';      
         $blog->save();
         $blogId=$blog->id;
         $file->move($destinationPath,$blog->id.'-'.$file->getClientOriginalName()); 

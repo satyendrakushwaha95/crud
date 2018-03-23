@@ -50,7 +50,7 @@
 <td>{{ $blog->title }}</td>
 <td>{{ $blog->content}}</td>
 <!-- <td>{{ $blog->file}}</td> -->
-<td><a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blog->file }}</a></td>
+<td><a target="_blank" href="{{ URL::asset("storage/uploads/{$blog->file}") }}">{{ $blog->file }}</a></td>
 
 <td>
 @foreach($blog->hasArticle as $k=>$v)

@@ -9,8 +9,8 @@ class Blog extends Model
      protected $fillable=[
 
 'title',
-'content',
-'file'
+'content'
+//'file'
     ];
 
 public function user(){
@@ -27,6 +27,11 @@ public function hasArticle()
 public function blogArticle()
 	{
 	return $this->hasMany('App\Has_article', 'blog_id');
+	}
+
+public function hasFile()
+	{
+	return $this->hasMany('App\Has_file', 'blog_id');
 	}
 
 	

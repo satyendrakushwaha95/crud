@@ -24,8 +24,10 @@
  <div class="form-group">
 {!! Form::label('file', 'Choose file to upload:') !!}
 <!-- {!! Form::file('file') !!}--> 
-{!! Form::file('file', array('class' => 'image')) !!}
-File:<a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blog->file }}</a><br>
+{!! Form::file('file[]', array('multiple'=>true, 'class' => 'image')) !!}
+<!-- {!! Form::file('file', array('class' => 'image')) !!} -->
+File:<a target="_blank" href="{{ URL::asset("storage/uploads/{$blog->file}") }}">{{ $blog->file }}</a><br>
+
 
 <div class="form-group">
 	<strong>Articles: </strong>

@@ -49,9 +49,16 @@
 <!-- <td><a href="{{ action('BlogsController@show',[$blog->id]) }}"> {{ $blog->title }} </a> </td> -->
 <td>{{ $blog->title }}</td>
 <td>{{ $blog->content}}</td>
-<!-- <td>{{ $blog->file}}</td> -->
-<td><a target="_blank" href="{{ URL::asset("storage/uploads/{$blog->file}") }}">{{ $blog->file }}</a></td>
+<!-- <td>{{ $blog->file}}</td> 
+<td><a target="_blank" href="{{ URL::asset("storage/uploads/{$blog->file}") }}">{{ $blog->file }}</a></td> -->
+<td>
+@foreach($blog->hasFile as $k=>$v)
 
+<!-- {{$v->file}}<br>
+ --><a target="_blank" href="{{ URL::asset("storage/uploads/{$v->file}") }}">{{ $v->file }}</a>
+
+@endforeach
+</td> 
 <td>
 @foreach($blog->hasArticle as $k=>$v)
 

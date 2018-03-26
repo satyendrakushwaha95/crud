@@ -28,7 +28,8 @@
  <div class="form-group">
 {!! Form::label('file', 'Choose file to upload:') !!}
 <!-- {!! Form::file('file') !!}--> 
-{!! Form::file('file', array('class' => 'image')) !!}
+{!! Form::file('file[]', array('multiple'=>true, 'class' => 'image')) !!}
+<!-- {!! Form::file('file', array('class' => 'image')) !!} -->
 
 </div> 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\User;
+use App\Has_file;
 use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -85,23 +86,35 @@ class BlogsController extends Controller
     {
         
         
+       // $files=Input::file('file');
         $file=Input::file('file');
-
         $blog= new Blog;
         $blog->title = Input::get('title');
         $blog->content = Input::get('content');
-//to strore by id 
+    //to strore by id 
         $blog->user_id = auth()->user()->id;
-
         $destinationPath = 'storage/uploads';      
         $blog->save();
+       
+      foreach (Input::file('file') as $key => $value) :
+     //  dd($value);
+       $saveImgs=new Has_file;
         $blogId=$blog->id;
-        $file->move($destinationPath,$blog->id.'-'.$file->getClientOriginalName()); 
-        $BlogUpdate=Blog::find($blog->id);
-        $BlogUpdate->file=$blog->id.'-'.$file->getClientOriginalName();
-        $BlogUpdate->update();
-        $blog->hasArticle()->sync(Input::get('article'));
+       $fileName = "file" . $key . date("YmdHis") . "." . $value->getClientOriginalExtension();
+      // dd($fileName);
+        $value->move($destinationPath,$fileName);       
         
+        $saveImgs->blog_id=$blog->id;
+            $saveImgs->file=$fileName;
+            $saveImgs->save();        
+   
+        // $BlogUpdate=Blog::find($blog->id);
+        // $BlogUpdate->file=$blog->id.'-'.$file->getClientOriginalName();
+        // $BlogUpdate->update();
+
+  endforeach;
+
+        $blog->hasArticle()->sync(Input::get('article'));
         return redirect('blogs')->with('success','Item created successfully');
     
     }
@@ -117,13 +130,14 @@ class BlogsController extends Controller
     public function edit($id)
     {
 
-        $articles=Article::get();
+         $articles=Article::get();
          $blog=Blog::findOrfail($id);
          $file=Input::file('file');
-         $file=Blog::find('file');
-          $file=Blog::find($id);
+         $files=new Has_file;
+         $files=Has_file::get();
+         $files=Has_file::find($id);
          
-        return view('blogs.edit',compact('blog','articles'));
+        return view('blogs.edit',compact('blog','articles','files'));
     }
 
    

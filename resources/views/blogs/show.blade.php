@@ -27,20 +27,25 @@ th, td {
 <br>
 
 <span STYLE="color:red;font-weight:bold;font-size:18pt">File: </span> 
-<a target="_blank" href="{{ URL::asset("storage/{$blog->file}") }}">{{ $blog->file }}</a><br>
-
+<table>
+  <tr>
+    <th>File:</th>
+@foreach($blog->hasFile as $k=>$v)
+<a target="_blank" href="{{ URL::asset("storage/uploads{$v->file}") }}">
+  <td>  {{ $v->file }}</td>
+</a>
+@endforeach
+</tr></table>
 
 <span STYLE="color:red;font-weight:bold;font-size:18pt">Article : </span> 
-@foreach($blog->hasArticle as $k=>$v)
 <table>
   <tr>
     <th>Title:</th>
+    @foreach($blog->hasArticle as $k=>$v)
     <td>{{$v->title}}</td>
+@endforeach
   </tr>
  </table>
-
-
-@endforeach
 <!-- <img src='{{ asset($blog->file) }}'> 
 
 {{ Html::image('$blog->file') }} -->

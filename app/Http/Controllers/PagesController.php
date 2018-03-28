@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Location;
+use App\Salary;
 use Auth;
 Use Route;
 
@@ -13,7 +15,6 @@ class PagesController extends Controller
 
     {
    	
-
     	$people=[
     		'Satyendra', 'Vicky','Infini'
     		];
@@ -30,7 +31,11 @@ class PagesController extends Controller
      public function profile()
     {
     $user = Auth::user();
-    return view('pages.profile')->with(['user' => $user]);
+    $user= User::all();
+    $location = Location::all();
+    $salary = Salary::all();
+    return view ('pages.profile',compact('user','location','salary'));
+   // return view('pages.profile')->with(['user' => $user]);
     }
 
 

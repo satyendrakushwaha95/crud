@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+date_default_timezone_set("Asia/Kolkata");
+
 Route::resource('articles', 'ArticlesController');
 
 Route::get('/articledown', 'ArticlesController@down')->name('articledown');

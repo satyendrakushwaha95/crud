@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    
 <!-- AJAX -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -16,6 +17,18 @@
     <script src="{{ asset('js/app.js') }}"></script>
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+
+    .floatLeft { width: 50%; float: left; }
+    .floatRight {width: 50%; float: right; }
+
+    body {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-attachment: auto;
+    background-size: cover;
+
+    </style>
 <!-- Chosen --> 
          
     <script src="{{ asset('plugin/chosen/chosen.jquery.js') }}"></script>
@@ -23,10 +36,11 @@
     
     <script src="{{ asset('plugin/chosen/chosen.jquery.min.js') }}"></script>
     <link href="{{ asset('plugin/chosen/chosen.min.css') }}" rel="stylesheet">
-    
+   
         
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">

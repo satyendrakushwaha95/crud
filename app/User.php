@@ -30,4 +30,14 @@ class User extends Authenticatable
     public function blog(){
         return $this->hasMany('App\Blog');
     }
+
+    public function location(){
+        return $this->hasMany('App\Location');
+    }
+
+    public function salary(){
+        return $this->hasMany('App\Salary');
+    }
+
+
 }

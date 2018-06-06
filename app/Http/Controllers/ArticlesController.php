@@ -33,7 +33,7 @@ class ArticlesController extends Controller
             $result=$result->where("body",'like','%'.Input::get("searchbody").'%');
         }
 
-            $result=$result->paginate(10);
+            $result=$result->paginate(5);
            $articles  =$result;
            return view ('articles.index',compact('articles'));
 

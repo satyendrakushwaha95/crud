@@ -1,30 +1,43 @@
 
 @extends('layouts.app')
 @section('content')
-<style type="text/css">
-div.inline { display:inline; }
-</style>
-<div class="container"><p><span style="font-style: bold ;font-size:35px">Articles</span>
-<button type="button" class="btn btn-info btn-primary" data-toggle="modal" data-target="#addModal">Add Article</button>
+
+<div class="container">
+  <div class="heading">
+    <h2>Articles</h2>
+  </div>
+<div class="col-md-12 filter-block">
+<div class="col-md-2">
+<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#addModal">Add Article</button>
+</div>
 <!-- ----------------------------- SEARCH FILTER ----------------------------------- --> 
+<div class="col-md-8">
   <form class="form-inline" method="get" action="{{ url('/articles') }}">
-    <div class="form-group"><strong><span style="font-style: bold ;font-size:20px">Filter: </span></strong>
-      <input type="number" class="form-control" id="id" placeholder="Enter ID" name="searchid">
+    <div class="form-group"><strong><span style=" ;font-size:16px">Filter </span></strong>
+      <input type="number" class="form-control input-sm" id="id" placeholder="Enter ID" name="searchid">
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="title" placeholder="Enter Title" name="searchtitle">
+      <input type="text" class="form-control input-sm" id="title" placeholder="Enter Title" name="searchtitle">
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="body" placeholder="Enter Body Elements" name="searchbody">
+      <input type="text" class="form-control input-sm" id="body" placeholder="Enter Body Elements" name="searchbody">
     </div>
-    <button type="submit" class="btn btn-success">Search</button> <a class="btn btn-danger" href="{{url('articles')}}">Reset</a> <a href="{{ URL::route('data/download/articles') }}" class="btn btn-sm btn-default pull-right"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
-  </form></p>
+    <button type="submit" class="btn btn-sm btn-success">Search</button>
+    <a class="btn btn-sm btn-danger" href="{{url('articles')}}">Reset</a>
+</div>
+
+    <div class="col-md-2">
+    <a href="{{ URL::route('data/download/articles') }}" class="btn btn-sm btn-default"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+  </div>
+  
+  </form>
+</div>
 </div>
  
  <!-- ----------------------------- A D D --------------------------------------- --> 
 
  <div class="modal fade" id="addModal" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -53,11 +66,12 @@ div.inline { display:inline; }
       </div>    
     </div>
   </div>
+</div>
 
 <!-- ---------------------------------------------------------------------------------- -->
 
 <div class="container" >
-<table class="table"> 
+<table class="table table-responsive table-hover table-bordered"> 
 <tr class="danger">
 <th>ID</th>
 <th>Name </th>
@@ -69,13 +83,14 @@ div.inline { display:inline; }
 <tr class="info">
 <td>{{ $article->id }}</td>
 <td>{{ $article->title }} </td>
-<td>{{ $article->body}}</td>
+<td>{{ str_limit($article->body)}}</td>
 <td>{{$article->created_at}}</td>
 <!-- modal implementing -->
-<td>
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal{{$article->id}}"><i class="fa fa-eye" aria-hidden="true">View</i></button>
-<button type="button" class="btn btn-info btn-primary editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button>
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-remove" aria-hidden="true">Delete</i></button>
+<td style='white-space: nowrap' >
+<button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal{{$article->id}}"><i class="fa fa-eye" aria-hidden="true"></i></button>
+<button type="button" class="btn btn-xs btn-warning editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+<button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+</td>
 
 <!-- 
 {!! Form::open(['method' => 'DELETE','route' => ['articles.destroy', $article->id],'style'=>'display:inline']) !!}
@@ -85,7 +100,7 @@ div.inline { display:inline; }
 
  <!-- ----------------------------- E D I T --------------------------------------- --> 
   <div class="modal fade" id="editModal" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -119,7 +134,7 @@ div.inline { display:inline; }
       </div>    
     </div>
   </div>
-
+</div>
  <!-- ----------------------------------- D E L E T E -------------------------------------- -->
 
 <div class="modal fade{{$article->id}}" id="deleteModal" role="dialog">
@@ -149,13 +164,13 @@ div.inline { display:inline; }
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Title: {{$article->title}}</h4>
+        <div class="modal-title" style="text-align: center;"><strong>{{$article->title}}</strong></div>
       </div>
       <div class="modal-body">
-        Body: {{$article->body}}
+      {{$article->body}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
 
@@ -167,8 +182,9 @@ div.inline { display:inline; }
 @endforeach
 
 </table>
+<div class="col-md-18 pull-right">
 <?php echo $articles->render(); ?>
-  
+</div>
   <!-- ----------------------------- S C R I P T S ------------------------------------ -->
 <script>
 

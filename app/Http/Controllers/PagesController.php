@@ -11,32 +11,26 @@ Use Route;
 
 class PagesController extends Controller
 {
-    public function about()
 
-    {
-   	
-    	$people=[
-    		'Satyendra', 'Vicky','Infini'
-    		];
-
-    		
-    	return view ('pages.about',compact('people'));
-    }
-
-     public function contact()
-    {
-        return view('pages.contact');
-    }
-
+   
      public function profile()
     {
-    $user = Auth::user();
-    $user= User::all();
-    $location = Location::all();
-    $salary = Salary::all();
-    return view ('pages.profile',compact('user','location','salary'));
-   // return view('pages.profile')->with(['user' => $user]);
+    return view ('pages.profile');
     }
 
+    public function design1()
+    {
+        return view('pages.design1');
+    }
+
+     public function design2()
+    {
+        return view('pages.design2');
+    }
+
+      public function design3()
+    {
+        return view('pages.design3');
+    }
 
 }

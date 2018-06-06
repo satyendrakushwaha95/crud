@@ -41,7 +41,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Article</h4>
+          <h4 class="modal-title"><strong>Add Article</strong></h4>
         </div>
         <div class="modal-body modalContent">       
 
@@ -55,12 +55,12 @@
 <div class="form-group">
 <div class="col-sm-12">
 {!! Form::label('body', 'Body:') !!}
-{!! Form::text('body', null, ['class'=>'form-control']) !!}
+{!! Form::textarea('body', null, ['class'=>'form-control']) !!}
 </div></div>
 </div> <!--modal body closing -->
         <div class="modal-footer"> 
-          <button type="button" id="submit" class="btn btn-success submitForm">Submit</button>  
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" id="submit" class="btn btn-xs btn-success submitForm">Submit</button>  
+          <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal">Close</button>
         </div>
       </form>
       </div>    
@@ -91,6 +91,7 @@
 <button type="button" class="btn btn-xs btn-warning editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
 <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
 </td>
+</tr>
 
 <!-- 
 {!! Form::open(['method' => 'DELETE','route' => ['articles.destroy', $article->id],'style'=>'display:inline']) !!}
@@ -104,33 +105,28 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Article</h4>
+          <h4 class="modal-title"><strong>Edit Article</strong></h4>
         </div>
        <!--  <div class="modal-body modalContent">  -->      
 <div class="modal-body"> 
-<form id="updateModal" enctype="multipart/form-data" class="form-horizontal" role="form" method="POST">
+  <form id="updateModal" enctype="multipart/form-data" class="form-horizontal" role="form" method="POST">
+      <input id="idval" name="id" type="hidden" value="{{ $article->id }}">
 
-<div class="form-group"> 
-        <input id="idval" name="id" type="hidden" value="{{ $article->id }}">
-</div> 
-<div class="form-group">
-<div class="col-sm-12">
-
-        <label for="title">Title:</label>
-        <input type="text" id="titleval" name="title" value="{{ $article->title }}">
-      </div></div>
-<div class="form-group">
-<div class="col-sm-12">
-        <label for="body">Body:</label>
-        <input type="text" id="bodyval" name="body" value="{{ $article->body }}">
-      </div></div>
-
-</div> 
-         <div class="modal-footer"> 
-          <button type="button" class="btn btn-success updateForm">Update</button>  
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="titleval" class="form-control" name="title" value="{{ $article->title }}">
         </div>
-      </form>
+        <div class="form-group">
+            <label for="body">Body:</label>
+            <input type="textarea" id="bodyval" class="form-control" name="body" value="{{ $article->body }}">
+        </div>
+
+</div> 
+        <div class="modal-footer"> 
+          <button type="button" class="btn btn-success btn-xs updateForm">Update</button>  
+          <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  </form>
       </div>    
     </div>
   </div>
@@ -140,22 +136,22 @@
 <div class="modal fade{{$article->id}}" id="deleteModal" role="dialog">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
-       <!--  <div class="modal-body modalContent">  -->      
-<div class="modal-body"> 
-<form id="deleteModal" enctype="multipart/form-data" class="form-horizontal" role="form" method="get">
-<div class="form-group"> 
-        <input id="deleteId" name="id" type="hidden" value="{{ $article->id }}">
-</div>
-<h3>Are you sure.??</h3>
-           <div class="modal-footer">
-          <button type="button" class="btn btn-danger deleteData">Delete</button>  
-          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-      </div>    
+        <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>  
+        <div class="container">
+            <div class="col-md-2" style="margin-left: 38px;">  
+               <form id="deleteModal" enctype="multipart/form-data" class="form-horizontal" role="form" method="get">    
+                     <input id="deleteId" name="id" type="hidden" value="{{ $article->id }}">
+                      <h4>Are you sure.??</h4>
+                        <button type="button" class="btn btn-sm btn-danger deleteData">Delete</button>  
+                        <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Close</button>
+              </form>
+              </div> 
+            </div>
+          </div>  
+      </div>
     </div>
-  </div>
-  </div>
+</div>
 
   <!-- ----------------------------------- V I E W -------------------------------------- --> 
 
@@ -164,7 +160,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <div class="modal-title" style="text-align: center;"><strong>{{$article->title}}</strong></div>
+        <div class="modal-title"><strong>{{$article->title}}</strong></div>
       </div>
       <div class="modal-body">
       {{$article->body}}

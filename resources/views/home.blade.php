@@ -13,7 +13,7 @@
     <div class="col-md-8 col-md-offset-2">
     <div class="panel-header" style="text-align: center;">
         <div class="heading">
-    <h2>Dashboard</h2>
+    <h2 style="font-family: 'Vast Shadow', cursive;">Dashboard</h2>
   </div>
     </div>
                   <div class="card-body">

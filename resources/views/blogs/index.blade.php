@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="heading">
-    <h2>Blogs</h2>
+    <h2 style="font-family: 'Vast Shadow', cursive;">Blogs</h2>
   </div>
 <div class="col-md-12 filter-block">
 <div class="col-md-2">

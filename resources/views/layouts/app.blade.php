@@ -16,6 +16,7 @@
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
     <style>
 
     .floatLeft { width: 50%; float: left; }

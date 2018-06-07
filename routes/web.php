@@ -19,9 +19,6 @@ date_default_timezone_set("Asia/Kolkata");
 
 Route::resource('articles', 'ArticlesController');
 
-Route::get('/articledown', 'ArticlesController@down')->name('articledown');
-Route::any('/articleview', 'ArticlesController@showDown')->name('articleview');
-
 Route::post('/addArticle','ArticlesController@addArticle')->name('addArticle');
 Route::any('/edit','ArticlesController@edit')->name('edit');
 Route::post('/update','ArticlesController@update')->name('update');
@@ -34,10 +31,6 @@ Route::get('/data/download/articles',
         'uses' => 'ArticlesController@getArticles'
     ]
 );
-
-
-
-
 
 
 

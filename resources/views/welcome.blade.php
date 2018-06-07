@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -45,9 +46,10 @@
             }
 
             .title {
-                font-size: 90px;
-                text-shadow: 2px -2px 7px #fff100;
-                font-family: 'Raleway', sans-serif;
+                font-size: 72px;
+                /*text-shadow: 2px -2px 7px #fff100;*/
+                /*font-family: 'Raleway', sans-serif;*/
+                font-family: 'Vast Shadow', cursive;
                 font-weight: 100;
             }
 
@@ -60,6 +62,7 @@
                 text-decoration: none;
                 text-transform: uppercase;
                 color: black;
+                outline: none;
             }
 
             .m-b-md {
@@ -73,6 +76,7 @@
                 z-index: 999999;
                 width: 100%;
                 text-align: center;
+                outline:none;
 
             }
             .startbtn {
@@ -85,6 +89,7 @@
                 z-index: 999999;
                 cursor: pointer;
                 border-radius: 12px;
+                outline:none;
             }
             .startbtn:hover {
                 color: #ffffff;
@@ -96,6 +101,7 @@
                 z-index: 999999;
                 cursor: pointer;
                 border-radius: 12px;
+                outline:none;
             }
 
         </style>

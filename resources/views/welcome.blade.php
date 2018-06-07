@@ -9,26 +9,16 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <!-- Styles -->
         <style>
+            
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
+                overflow-y: hidden;
                 margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
             }
 
             .position-ref {
@@ -36,17 +26,29 @@
             }
 
             .top-right {
-                position: absolute;
+                position: fixed;
                 right: 10px;
                 top: 18px;
+                color: white;
             }
-
+            .overlay { 
+                color:#fff;
+                position:absolute;
+                z-index:12;
+                top:38%;
+                left:0;
+                width:100%;
+                text-align:center;
+            }
             .content {
                 text-align: center;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 90px;
+                text-shadow: 2px -2px 7px #fff100;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
             }
 
             .links > a {
@@ -57,22 +59,56 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                color: black;
             }
 
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .getstartedbtn {
+                position: fixed;
+                padding: 10px;
+                top: 75%;
+                z-index: 999999;
+                width: 100%;
+                text-align: center;
+
+            }
+            .startbtn {
+                color: #ffffff;
+                padding: 15px;
+                text-align: center;
+                text-transform: uppercase;
+                background: transparent;
+                border: 3px solid #fff;
+                z-index: 999999;
+                cursor: pointer;
+                border-radius: 12px;
+            }
+            .startbtn:hover {
+                color: #ffffff;
+                padding: 15px;
+                text-align: center;
+                text-transform: uppercase;
+                background: transparent;
+                border: 3px solid #ffd721;
+                z-index: 999999;
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+            <div class="overlay  position-ref">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}"><span style="color: white">Home</span></a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}"><span style="color: white">Login</span></a>
+                        <a href="{{ url('/register') }}"><span style="color: white">Register</span></a>
                     @endif
                 </div>
             @endif
@@ -83,7 +119,31 @@
                 <div class="title m-b-md">
                 Project 3 - Testing
                 </div>
-            </div>
         </div>
+    </div>
+    
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1500">
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="images/scene-3.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="images/scene-5.jpg" alt="Chicago" style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="images/scene-4.jpg" alt="New york" style="width:100%;">
+      </div>
+
+  </div>
+</div>
+            <div class="getstartedbtn"><!-- <a href="{{URL::to('/home')}}" class="btn">Get Started</a> -->
+            <form action="{{URL::to('/home')}}">
+                <input type="submit" class="btn startbtn" value="Get Started" />
+            </form>
+            </div>
     </body>
 </html>
+
+

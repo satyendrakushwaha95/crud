@@ -135,7 +135,7 @@ form{
         <div class="panel-heading">
           <img src="images/logo.png" height="100px" width="150px">
           <span class="logotext">
-            Design Simplified
+            Project-3
           </span>
         </div>
        <div class="panel-body flex-grow">

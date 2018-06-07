@@ -15,6 +15,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <style>
 
     .floatLeft { width: 50%; float: left; }

@@ -100,6 +100,9 @@
                 border-radius: 12px;
                 outline:none;
             }
+            .fa{
+                color: white;
+            }
 
         </style>
     </head>
@@ -108,10 +111,10 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}"><span style="color: white">Home</span></a>
+                        <a href="{{ url('/home') }}"><span style="color: white"><i class="fa fa-home" aria-hidden="true"></i> Home</span></a>
                     @else
-                        <a href="{{ url('/login') }}"><span style="color: white">Login</span></a>
-                        <a href="{{ url('/register') }}"><span style="color: white">Register</span></a>
+                        <a href="{{ url('/login') }}"><span style="color: white"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</span></a>
+                        <a href="{{ url('/register') }}"><span style="color: white"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Register</span></a>
                     @endif
                 </div>
             @endif

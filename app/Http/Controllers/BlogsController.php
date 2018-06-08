@@ -62,7 +62,7 @@ class BlogsController extends Controller
            //  $result=$result->paginate(10);
            $blogs  = $blogs->paginate(10);
 
-       return view ('blogs.index',compact('blogs','searchid'));  
+       return view ('blogs.index',compact('blogs','searchid','user','user_role'));  
       }
 
     

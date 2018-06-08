@@ -38,7 +38,7 @@
     @endif
 <div class="row">
 <table class="table table-responsive table-hover table-bordered"> 
-<tr class="danger">
+<tr style="background: #484848; color:#fff;">
 <th>ID</th>
 <th>Name </th>
 <th>Content </th>

@@ -10,7 +10,7 @@
                     @endif
 </div>
 <div class="container">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
     <div class="panel-header" style="text-align: center;">
         <div class="heading">
     <h2 style="font-family: 'Vast Shadow', cursive;">Dashboard</h2>
@@ -22,10 +22,10 @@
                         <input type="text" class="form-control input-sm" id="userTableFilter" data-action="filter" data-filters="#userTable" placeholder="Enter Name" />
                     
                     </div>
-                     <table class="table table-hover table-responsive-sm" id="userTable"">
+                     <table class="table table-hover table-bordered table-responsive-sm" id="userTable"">
                       <thead>
-                        <tr class="info">
-                          <th>Name 
+                        <tr style="background: #484848; color:#fff;">
+                          <th>User 
                             <i class="fa fa-search" aria-hidden="true" onclick="myFunction()"></i>
                           </th>
                           <th>Email</th>

@@ -38,7 +38,7 @@
 
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container-fluid">
+            <div class="container-fluid" style="padding-right: 20px">
                 <div class="navbar-header">
                         <div class="navbarBrand ">
                     <!-- Branding Image -->

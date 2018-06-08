@@ -71,13 +71,13 @@
 <!-- ---------------------------------------------------------------------------------- -->
 
 <div class="container" >
-<table class="table table-responsive table-hover table-bordered"> 
+<table class="table table-responsive table-hover table-bordered textInMiddle"> 
 <tr style="background: #484848; color:#fff;">
-<th>ID</th>
-<th>Name </th>
-<th>Body </th>
-<th>Time </th>
-<th>Action</th>
+<th class="textInMiddle">ID</th>
+<th class="textInMiddle">Name </th>
+<th class="textInMiddle">Body </th>
+<th class="textInMiddle">Time </th>
+<th class="textInMiddle">Action</th>
 </tr>
 @foreach($articles as $article)
 <tr class="info">

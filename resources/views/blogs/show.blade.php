@@ -8,7 +8,7 @@
   <a class="btn btn-success" href="{{url('blogs')}}"> Back </a>
 </div>
 
-
+<div class="container">
 <div class="col-md-6 col-md-offset-3 panel blogPanel">
 <div class="panel-heading blogHeading">
 {{$blog->title}}
@@ -33,6 +33,7 @@ Article -> Title:h>
 <!-- <img src='{{ asset($blog->file) }}'> 
 
 {{ Html::image('$blog->file') }} -->
+</div>
 </div>
 </div>
 @endsection

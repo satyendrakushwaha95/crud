@@ -12,8 +12,10 @@ class ACLController extends Controller
 {
    public function adminPanel(){
 
-   	$user= Auth::user();
-    $user= User::all();
-   	return view ('admin.adminPanel')->with(['user' => $user]);
+   	return view ('admin.adminPanel');
+   }
+   public function adminPanelEdit(){
+
+   	return view ('admin.adminPanelEdit');
    }
 }

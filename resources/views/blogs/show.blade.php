@@ -1,9 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<style>
-
-
-</style>
 <div class="container">
   <a class="btn btn-success" href="{{url('blogs')}}"> Back </a>
 </div>

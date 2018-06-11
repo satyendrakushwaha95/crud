@@ -22,7 +22,7 @@
                     <div class="logotext">Sign-In</div>
                     </div>
 
-                <div class="panel-body">
+                <div class="panel-body ">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 

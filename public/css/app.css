@@ -169,3 +169,8 @@ tr:hover {
 .signinbtn:hover {
     background-color: #4CAF50;
 }
+
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}

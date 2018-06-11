@@ -104,6 +104,11 @@
                 color: white;
             }
 
+            .btn:focus,.btn:active {
+                outline: none !important;
+                box-shadow: none;
+            }
+
         </style>
     </head>
     <body>

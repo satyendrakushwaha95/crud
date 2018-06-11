@@ -31,7 +31,7 @@
   }
   }
 
-    .panel{
+    .panel {
     display: inline-block;
     position: fixed;
     top: 5px;

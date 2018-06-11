@@ -2,8 +2,9 @@
 @extends('layouts.app')
 @section('content')
 <style>
+
   .zindex{
-    z-index: 2;
+    z-index: 999999;
     position: relative;
   }
 </style>

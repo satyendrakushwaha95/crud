@@ -18,11 +18,16 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed" rel="stylesheet">
     <style>
 
     .floatLeft { width: 50%; float: left; }
     .floatRight {width: 50%; float: right; }
 
+    .nav{
+        z-index: 1;
+    }
     </style>
 <!-- Chosen --> 
          
@@ -106,8 +111,21 @@
                         @endif
                     </ul>
                 </div>
+
         </nav>
+
         @yield('content')
+        <div class="footer">
+            <div class="footer-body">
+          <span style="color: black;">Copyright &copy; 2018 </span>- Satyendra Kushwaha
+            <span class="pull-right"><span style="color: black;">Follow Me -</span>
+                <!--Facebook icon-->
+                <a href="http://facebook.com/iviicky" target="_blank"> <i class="fa fa-facebook-square" aria-hidden="true"></i> </a>&nbsp;
+                <!--Instagram icon-->
+                <a href="http://instagram.com/i_viicky" target="_blank"> <i class="fa fa-instagram" aria-hidden="true"></i> </a>&nbsp;
+                <!--Linkedin icon-->
+                <a href="https://in.linkedin.com/in/satyendrakushwaha" target="_blank"> <i class="fa fa-linkedin-square" aria-hidden="true"></i> </a>&nbsp;
+        </div>
     </div>
     <!-- Scripts -->
 </body>

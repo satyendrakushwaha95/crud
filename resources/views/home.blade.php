@@ -8,8 +8,8 @@
     position: relative;
   }
 </style>
-    
-    <div class="col-md-8 col-md-offset-2  zindex">
+    <div class="container zindex">
+    <div class="col-md-8 col-md-offset-2 ">
     <div class="panel-header" style="text-align: center;">
         <div class="heading">
     <h2 style="font-family: 'Vast Shadow', cursive;">Dashboard</h2>
@@ -36,7 +36,7 @@
                       <tbody id="userTableBody">
 
                         @foreach($user as $user)
-                        <tr class="onhover">
+                        <tr >
 
                           <td>{{$user->name}}</td>
                           <td>{{$user->email}} </td>
@@ -66,6 +66,7 @@
                     </table>
                   </div>
                 </div>
+              </div>
 
             <div id="particles-js"></div>
             <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

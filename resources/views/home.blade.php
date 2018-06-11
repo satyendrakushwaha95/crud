@@ -1,16 +1,14 @@
 
 @extends('layouts.app')
 @section('content')
-
-<div class="row">
- @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-</div>
-<div class="container">
-    <div class="col-md-10 col-md-offset-1">
+<style>
+  .zindex{
+    z-index: 2;
+    position: relative;
+  }
+</style>
+    
+    <div class="col-md-8 col-md-offset-2  zindex">
     <div class="panel-header" style="text-align: center;">
         <div class="heading">
     <h2 style="font-family: 'Vast Shadow', cursive;">Dashboard</h2>
@@ -67,9 +65,14 @@
                     </table>
                   </div>
                 </div>
-      </div>
 
-
+            <div id="particles-js"></div>
+            <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+            <script>
+                particlesJS.load('particles-js', 'js/particlesjs-config.json', function() {
+                    console.log('callback - particles.js config loaded');
+                });
+            </script>
  
 <script>
 $("#filterDiv").hide();

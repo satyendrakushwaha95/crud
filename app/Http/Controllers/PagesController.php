@@ -33,4 +33,8 @@ class PagesController extends Controller
         return view('pages.design3');
     }
 
+      public function design4()
+    {
+        return view('pages.design4');
+    }
 }

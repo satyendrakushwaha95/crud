@@ -60,6 +60,19 @@ text-align: center;
 	text-decoration:none;
 }
 
+.logotext{
+	text-transform: uppercase;
+	font-family: 'faster one', cursive;
+	text-decoration:none;
+	font-size: 35px;
+	text-align: center; 
+	color: #686868;
+}
+
+.authPage{
+margin-top: 85px;
+}
+
 ---------------------------- admin edit panel ----------------
 .switch {
   position: relative;
@@ -128,3 +141,31 @@ tr:hover {
   background-color: #686868;
   color: white;
 }            
+
+.loginbtn {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #0082ce;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.loginbtn:hover {
+    background-color: #4CAF50;
+}
+
+.signinbtn {
+    border: none;
+    background-color: #0082ce;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.signinbtn:hover {
+    background-color: #4CAF50;
+}

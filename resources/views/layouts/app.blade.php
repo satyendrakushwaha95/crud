@@ -68,9 +68,10 @@
                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Designs
                            <span class="caret"></span></a>
                            <ul class="dropdown-menu">
-                             <li><a href="{{ url('/design1') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> Design 1</a></li>
-                             <li><a href="{{ url('/design2') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> Design 2</a></li>
+                             <li><a href="{{ url('/design1') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> Design 1 - Homepage</a></li>
+                             <li><a href="{{ url('/design2') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> Design 2 - Login</a></li>
                              <li><a href="{{ url('/design3') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> Design 3</a></li>
+                             <li><a href="{{ url('/design4') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> Design 4 - Login</a></li>
                            </ul>
                          </li>
             

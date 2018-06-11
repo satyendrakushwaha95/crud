@@ -60,6 +60,7 @@ Route::get('/profile', 'PagesController@profile')->name('profile');
 Route::get('/design1', 'PagesController@design1')->name('design1');
 Route::get('/design2', 'PagesController@design2')->name('design2');
 Route::get('/design3', 'PagesController@design3')->name('design3');
+Route::get('/design4', 'PagesController@design4')->name('design4');
 
 Route::get('/uploadfile','UploadFileController@index');
 Route::post('/uploadfile','UploadFileController@showUploadFile');

@@ -63,7 +63,7 @@ input:checked + .slider:before {
 <div class="heading">
 <h2 style="font-family: 'Vast Shadow', cursive;">Admin Panel</h2>
 </div>
-  <table class="table table-hover table-responsive table-bordered">
+  <table class="table table-responsive table-bordered">
     <thead>
       <tr style="background: #484848; color:#fff;">
         <th class="textInMiddle">Managing Rights For</th>

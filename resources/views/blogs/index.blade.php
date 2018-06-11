@@ -37,7 +37,7 @@
         </div>
     @endif
 <div class="row">
-<table class="table table-responsive table-hover table-bordered"> 
+<table class="table table-responsive table-bordered"> 
 <tr style="background: #484848; color:#fff;">
 <th>ID</th>
 <th>Name </th>
@@ -50,7 +50,7 @@
 <th>Action</th>
 </tr>
 @foreach($blogs as $blog)
-<tr class="info">
+<tr>
 <td>{{ $blog->id }}</td>
 <!-- <td><a href="{{ action('BlogsController@show',[$blog->id]) }}"> {{ $blog->title }} </a> </td> -->
 <td>{{ $blog->title }}</td>

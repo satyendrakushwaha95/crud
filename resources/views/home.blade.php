@@ -20,7 +20,7 @@
                         <input type="text" class="form-control input-sm" id="userTableFilter" data-action="filter" data-filters="#userTable" placeholder="Enter Name" />
                     
                     </div>
-                     <table class="table table-hover table-bordered table-responsive-sm" id="userTable"">
+                     <table class="table table-bordered table-responsive-sm" id="userTable"">
                       <thead>
                         <tr style="background: #484848; color:#fff;">
                           <th>User 
@@ -35,7 +35,7 @@
                       <tbody id="userTableBody">
 
                         @foreach($user as $user)
-                        <tr>
+                        <tr class="onhover">
 
                           <td>{{$user->name}}</td>
                           <td>{{$user->email}} </td>

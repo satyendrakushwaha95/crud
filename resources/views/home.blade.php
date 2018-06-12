@@ -1,13 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
-<style>
 
-  .zindex{
-    z-index: 999999;
-    position: relative;
-  }
-</style>
     <div class="container zindex">
     <div class="col-md-8 col-md-offset-2 ">
     <div class="panel-header" style="text-align: center;">
@@ -21,7 +15,7 @@
                         <input type="text" class="form-control input-sm" id="userTableFilter" data-action="filter" data-filters="#userTable" placeholder="Enter Name" />
                     
                     </div>
-                     <table class="table table-bordered table-responsive-sm" id="userTable"">
+                     <table class="table table-bordered table-hover table-responsive-sm" id="userTable"">
                       <thead>
                         <tr style="background: #484848; color:#fff;">
                           <th>User 
@@ -36,7 +30,7 @@
                       <tbody id="userTableBody">
 
                         @foreach($user as $user)
-                        <tr >
+                        <tr class="info">
 
                           <td>{{$user->name}}</td>
                           <td>{{$user->email}} </td>
@@ -67,7 +61,6 @@
                   </div>
                 </div>
               </div>
-
             <div id="particles-js"></div>
             <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
             <script>
@@ -75,6 +68,8 @@
                     console.log('callback - particles.js config loaded');
                 });
             </script>
+        
+          
  
 <script>
 $("#filterDiv").hide();

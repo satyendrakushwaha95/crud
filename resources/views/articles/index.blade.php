@@ -8,12 +8,12 @@
   </div>
 <div class="col-md-12 filter-block">
 <div class="col-md-2">
-<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#addModal">Add Article</button>
+<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Article</button>
 </div>
 <!-- ----------------------------- SEARCH FILTER ----------------------------------- --> 
 <div class="col-md-8">
   <form class="form-inline" method="get" action="{{ url('/articles') }}">
-    <div class="form-group"><strong><span style=" ;font-size:16px">Filter </span></strong>
+    <div class="form-group"><strong><span style=" ;font-size:16px"><i class="fa fa-sliders" aria-hidden="true"></i> Filter </span></strong>
       <input type="number" class="form-control input-sm" id="id" placeholder="Enter ID" name="searchid">
     </div>
     <div class="form-group">
@@ -22,8 +22,8 @@
     <div class="form-group">
       <input type="text" class="form-control input-sm" id="body" placeholder="Enter Body Elements" name="searchbody">
     </div>
-    <button type="submit" class="btn btn-sm btn-success">Search</button>
-    <a class="btn btn-sm btn-danger" href="{{url('articles')}}">Reset</a>
+    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+    <a class="btn btn-sm btn-danger" href="{{url('articles')}}"><i class="fa fa-reply" aria-hidden="true"></i> Reset</a>
 </div>
 
     <div class="col-md-2">
@@ -89,7 +89,7 @@
 <td style='white-space: nowrap' >
 <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal{{$article->id}}"><i class="fa fa-eye" aria-hidden="true"></i></button>
 <button type="button" class="btn btn-xs btn-warning editArticle" data-id="{{$article->id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-<button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+<button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
 </td>
 </tr>
 

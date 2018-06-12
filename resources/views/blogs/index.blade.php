@@ -8,12 +8,12 @@
   </div>
 <div class="col-md-12 filter-block">
 <div class="col-md-2">
-    <a class="btn btn-sm btn-success" href="{{url('/blogs/create')}}">Add New Blog</a> 
+    <a class="btn btn-sm btn-success" href="{{url('/blogs/create')}}"><i class="fa fa-plus-square" aria-hidden="true"></i> Add New Blog</a> 
 </div>
 
 <div class="col-md-8">
  <form class="form-inline" method="get" action="{{ url('/blogs') }}">
-    <div class="form-group"><strong><span style=" ;font-size:16px">Filter </span></strong>
+    <div class="form-group"><strong><span style=" ;font-size:16px"><i class="fa fa-sliders" aria-hidden="true"></i> Filter </span></strong>
        <input type="number" class="form-control input-sm" id="id" value="{{ isset($_GET['searchid'])?$_GET['searchid']:'' }}" placeholder="Enter ID" name="searchid"> 
    
     </div>
@@ -23,7 +23,7 @@
     <div class="form-group">
       <input type="text" class="form-control input-sm" id="content" value="{{ isset($_GET['searchcontent'])?$_GET['searchcontent']:''  }}" placeholder="Enter Content Elements" name="searchcontent">
     </div>
-    <button type="submit" class="btn btn-sm btn-success">Search</button> <a class="btn btn-sm btn-danger" href="{{url('blogs')}}">Reset</a>
+    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-search" aria-hidden="true"></i> Search</button> <a class="btn btn-sm btn-danger" href="{{url('blogs')}}"><i class="fa fa-reply" aria-hidden="true"></i> Reset</a>
   </form>
 </div>
 <a href="{{ URL::route('data/download/blogs') }}" class="btn btn-sm btn-default pull-right"><i class="fa fa-download" aria-hidden="true"> Download CSV</i></a> 

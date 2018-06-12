@@ -25,10 +25,11 @@
     .floatLeft { width: 50%; float: left; }
     .floatRight {width: 50%; float: right; }
 
-    .nav{
-        z-index: 1;
-    }
-    </style>
+    .zindex{
+    z-index: 1;
+    position: relative;
+             }
+      </style>
 <!-- Chosen --> 
          
     <script src="{{ asset('plugin/chosen/chosen.jquery.js') }}"></script>
@@ -42,7 +43,7 @@
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top ">
             <div class="container-fluid" style="padding-right: 20px">
                 <div class="navbar-header">
                         <div class="navbarBrand ">
@@ -54,14 +55,14 @@
                 </div>
                 </div>
 
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-left ">
                     @if (Auth::user())
 
                     <li class="active nav-item">
                     <a class="nav-link" href="{{'home'}}"><i class="fa fa-home" aria-hidden="true" style="color: #d13114;"></i> Home <span class="sr-only">(current)</span></a>
                     </li>
                         <li class="dropdown">
-                           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Post
+                           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #0da300;"></i> Post
                            <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                              <li><a href="{{ url('/articles') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Articles</a></li>
@@ -113,12 +114,13 @@
                 </div>
 
         </nav>
+    </div>
 
         @yield('content')
         <div class="footer">
             <div class="footer-body">
-          <span style="color: black;">Copyright &copy; 2018 </span>- Satyendra Kushwaha
-            <span class="pull-right"><span style="color: black;">Follow Me -</span>
+          <span style="color: black;"  >Copyright &copy; 2018 </span>- Satyendra Kushwaha
+            <span class="pull-right"><span style="color: black;">Follow Me-</span>
                 <!--Facebook icon-->
                 <a href="http://facebook.com/iviicky" target="_blank"> <i class="fa fa-facebook-square" aria-hidden="true"></i> </a>&nbsp;
                 <!--Instagram icon-->

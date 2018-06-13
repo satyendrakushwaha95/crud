@@ -45,21 +45,22 @@
         </div>
         <div class="modal-body modalContent">       
 
-<form id="addArticle" enctype="multipart/form-data" class="form-horizontal" role="form" method="POST">
- 
-<div class="form-group">
-<div class="col-sm-12">
-{!! Form::label('title', 'Title:') !!}
-{!! Form::text('title', null, ['class'=>'form-control']) !!}
-</div></div>
-<div class="form-group">
-<div class="col-sm-12">
-{!! Form::label('body', 'Body:') !!}
-{!! Form::textarea('body', null, ['class'=>'form-control']) !!}
-</div></div>
-</div> <!--modal body closing -->
+      <form id="addArticle" enctype="multipart/form-data" class="form-horizontal" role="form" method="POST">
+          <div class="form-group">
+            <div class="col-sm-12">
+              {!! Form::label('title', 'Title:') !!}
+              {!! Form::text('title', null, ['class'=>'form-control']) !!}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              {!! Form::label('body', 'Body:') !!}
+              {!! Form::textarea('body', null, ['class'=>'form-control']) !!}
+            </div>
+          </div>
+          </div> <!--modal body closing -->
         <div class="modal-footer"> 
-          <button type="button" id="submit" class="btn btn-xs btn-success submitForm">Submit</button>  
+          <button type="submit" id="submit" class="btn btn-xs btn-success submitForm">Submit</button>  
           <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal">Close</button>
         </div>
       </form>
@@ -185,25 +186,21 @@
 <script>
 
   $(document).ready(function(){
- 
-  $(".submitForm").click(function(){
-  //alert("checking");       
-        var title = $("input[name=title]").val();
-        var body = $("input[name=body]").val();      
+
+$("#addArticle").submit(function(e) {
+        e.preventDefault();
+        var form_data = $(this).serialize()
         $.ajax({
            type:'POST',
            url:'{{route("addArticle")}}',
-           data:{title:title, body:body},
+           data:form_data,
            success:function(data){
              // alert(data.success);
-
-              window.location.href = "{{url('articles')}}";
-
+            //dd(data.success);
+            window.location.href = "{{url('articles')}}";
            }
         });
-  });
-
- 
+});
 
  $(".editArticle").click(function(){
        $.ajax({
@@ -216,8 +213,6 @@
              }
         });
     });
-
-
   
   $(".updateForm").on('click', function(){
         $.ajax({
@@ -239,7 +234,6 @@ $(".deleteData").on('click', function(){
         var id=$("#deleteId").val();
         $.ajax({
          
-            //type: 'POST',
             url: '{{route("deleteData")}}',
             type: 'GET',
             data: {id:id

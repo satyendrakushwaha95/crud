@@ -11,7 +11,7 @@
 </div>
 <div class="panel-body blogBody">
 <div class="row">
-Content: {{ $blog->content }}
+Content: <?php echo html_entity_decode( $blog->content ) ?>
 </div>
 File:
 @foreach($blog->hasFile as $k=>$v)

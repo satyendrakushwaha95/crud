@@ -54,15 +54,13 @@
 <td>{{ $blog->id }}</td>
 <!-- <td><a href="{{ action('BlogsController@show',[$blog->id]) }}"> {{ $blog->title }} </a> </td> -->
 <td>{{ $blog->title }}</td>
-<td>{{ str_limit($blog->content)}}</td>
+<!-- <td>{{ str_limit($blog->content)}}</td> -->
+<td><?php echo html_entity_decode (str_limit( $blog->content )) ?></td>
 <!-- <td>{{ $blog->file}}</td> 
 <td><a target="_blank" href="{{ URL::asset("storage/uploads/{$blog->file}") }}">{{ $blog->file }}</a></td> -->
 <td>
 @foreach($blog->hasFile as $k=>$v)
-
-<!-- {{$v->file}}<br>
- --><a target="_blank" href="{{ URL::asset("storage/uploads/{$v->file}") }}">{{ $v->file }}</a>
-
+<a target="_blank" href="{{ URL::asset("storage/uploads/{$v->file}") }}">{{ $v->file }}</a>
 @endforeach
 </td> 
 <td>

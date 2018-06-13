@@ -33,7 +33,7 @@ class ArticlesController extends Controller
             $result=$result->where("body",'like','%'.Input::get("searchbody").'%');
         }
 
-            $result=$result->paginate(5);
+            $result=$result->paginate(7);
            $articles  =$result;
            return view ('articles.index',compact('articles'));
 
@@ -46,7 +46,6 @@ class ArticlesController extends Controller
     
     public function create()
     {
-
         return view ('articles.create');
     }
 
@@ -56,8 +55,6 @@ class ArticlesController extends Controller
         
         Article::create($request->all());
         return redirect('articles')->with('success','Item created successfully');
-
-
 
         // Article::create($request->all());
         // return redirect('articles')->with('success','Item created successfully');
@@ -82,13 +79,9 @@ class ArticlesController extends Controller
     public function updateData(ArticleRequest $request)
     {
          //print_r(Input::all());exit; TO PRINT AT THIS INSTANCE
-          // $article->update($request->all());
-            // $article->title = $request->title;
-            // $article->body = $request->body;
-
-
+     
         $id=Input::get('id');
-         $article=Article::find($id);
+        $article=Article::find($id);
         $article->title = Input::get('title');
         $article->body = Input::get('body');
       
@@ -106,7 +99,7 @@ class ArticlesController extends Controller
     }
 
      
-      public function down()
+    public function down()
     {
         $articles=Article::get();
        // dd($articles);
@@ -126,7 +119,7 @@ class ArticlesController extends Controller
     }
 
     
-        public function addArticle()
+    public function addArticle()
    
     {
         $article= new Article;
@@ -140,7 +133,7 @@ class ArticlesController extends Controller
 
     }
 
-    function deleteData(Request $request)
+    public function deleteData(Request $request)
     {
         $article= Article::find($request->input('id'));
         if($article->delete())
@@ -151,7 +144,7 @@ class ArticlesController extends Controller
 
     }
 
-    private function createCsv(Collection $modelCollection, $articles){
+    public function createCsv(Collection $modelCollection, $articles){
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne(Schema::getColumnListing($articles));
         foreach ($modelCollection as $data)

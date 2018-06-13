@@ -1,15 +1,12 @@
 @extends('layouts.app')
 @section('content')
-
-
 <div class="container">
-<h3>Edit: {!! $blog->title !!}</h3><a class="btn btn-danger" href="{{url('blogs')}}">Back</a>
-<hr/>
+<div class="col-md-8 col-md-offset-2">
 <!-- <form method="post" enctype="multipart/form-data" action="{{ url('BlogsController@update') }}" accept-charset="UTF-8"> -->
 {!! Form::model($blog,['method'=>'PATCH','action'=>['BlogsController@update', $blog->id]]) !!} 
 <div class="form-group">
 
-{!! Form::label('title', 'Title:') !!}
+{!! Form::label('title', 'Title') !!}
 {!! Form::text('title', null, ['class'=>'form-control']) !!}
 </div>
 
@@ -17,22 +14,25 @@
 
 <div class="form-group">
 
-{!! Form::label('content', 'Content:') !!}
+{!! Form::label('content', 'Content') !!}
 {!! Form::textarea('content', null, ['class'=>'form-control']) !!}
 </div>
-
- <div class="form-group">
-{!! Form::label('file', 'Choose file to upload:') !!}
+<div class="row">
+	<div class="col-md-5">
+ <div class="form-group"><strong>To upload</strong>
 <!-- {!! Form::file('file') !!}--> 
 {!! Form::file('file[]', array('multiple'=>true, 'class' => 'image')) !!}
 <!-- {!! Form::file('file', array('class' => 'image')) !!} -->
-File:<a target="_blank" href="{{ URL::asset("storage/uploads/{$blog->file}") }}">{{ $blog->file }}</a><br>
-
-
+@foreach($blog->hasFile as $k=>$v)
+File: <a target="_blank" href="{{ URL::asset("storage/uploads/{$v->file}") }}">{{ $v->file }}</a>
+@endforeach
+</div>
+</div>
+<div class="col-md-6">
+<p><strong>Select Articles</strong></p>
 <div class="form-group">
-	<strong>Articles: </strong>
-	<?php  //print_r($blog->blogArticle); die;?>
-<select class="multiselect articleMultiselect" multiple="true" id="multi" name="article[]" style="width:400px">
+	
+<select class="multiselect articleMultiselect" multiple="true" id="multi" name="article[]" style="width:410px;" >
 	
 	@foreach($articles as $key => $article)
 	@if($blog->blogArticle)
@@ -47,16 +47,19 @@ File:<a target="_blank" href="{{ URL::asset("storage/uploads/{$blog->file}") }}"
         @endforeach
 </select>
 </div>
-</div> 
+</div>
+</div>
 
  <!-- submit button -->
-
+<div class="col-md-12">
 <div class="form-group">
- <button type="submit" class="btn btn-success">Update</button>  
+ <button type="submit" class="btn btn-sm btn-success" >Update</button>
+ <a class="btn btn-sm pull-right btn-danger" href="{{url('blogs')}}">Reset</a>  
 </div>
 </div>
 {!! Form::close() !!}
-
+</div>
+</div>
 <script>
 $(function() {
      $(".articleMultiselect").chosen();

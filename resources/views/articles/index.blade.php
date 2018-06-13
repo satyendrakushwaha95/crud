@@ -249,4 +249,3 @@ $(".deleteData").on('click', function(){
 
 </div>
 @endsection
-

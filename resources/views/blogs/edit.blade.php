@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container paddingCont">
 <div class="col-md-8 col-md-offset-2">
 <!-- <form method="post" enctype="multipart/form-data" action="{{ url('BlogsController@update') }}" accept-charset="UTF-8"> -->
 {!! Form::model($blog,['method'=>'PATCH','action'=>['BlogsController@update', $blog->id]]) !!} 
@@ -11,14 +11,15 @@
 </div>
 
 <!-- body form input -->
-
 <div class="form-group">
-
 {!! Form::label('content', 'Content') !!}
-{!! Form::textarea('content', null, ['class'=>'form-control']) !!}
+<!-- {!! Form::textarea('content', null, ['class'=>'form-control']) !!} -->
+<textarea name="content" class="form-control">{{ $blog->content }}</textarea>
+<script>CKEDITOR.replace( 'content' );</script>
 </div>
+
 <div class="row">
-	<div class="col-md-5">
+<div class="col-md-5">
  <div class="form-group"><strong>To upload</strong>
 <!-- {!! Form::file('file') !!}--> 
 {!! Form::file('file[]', array('multiple'=>true, 'class' => 'image')) !!}
@@ -64,6 +65,7 @@ File: <a target="_blank" href="{{ URL::asset("storage/uploads/{$v->file}") }}">{
 $(function() {
      $(".articleMultiselect").chosen();
 });
+
 </script>
 @include('errors.list')
 @endsection
